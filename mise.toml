@@ -1,0 +1,5 @@
+[tools]
+"aqua:quarto-dev/quarto-cli" = "latest"
+python = "latest"
+typst = "latest"
+uv = "latest"
