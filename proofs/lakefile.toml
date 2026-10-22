@@ -1,0 +1,21 @@
+name = "physics"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["Physics"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.35.0"
+
+# Files live at Physics/<ModuleId>/<Name>.lean (e.g. Physics/M0_1/Sqrt2Irrational.lean).
+# The glob builds every module under Physics/ without a hand-maintained root import list.
+[[lean_lib]]
+name = "Physics"
+globs = ["Physics.+"]
