@@ -1,0 +1,141 @@
+# Grades every push to main, then publishes progress.json to the orphan branch `data`.
+# The app reads https://raw.githubusercontent.com/ndaba1/physics/data/progress.json.
+name: grade
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # manual regrade: executes every notebook
+
+permissions:
+  contents: write
+
+concurrency:
+  group: grade # serialize runs so pushes to `data` never race
+  cancel-in-progress: false
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # full history: progress.py attributes every commit to a day
+
+      - name: Notebooks changed in this push
+        id: changed
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          list="$RUNNER_TEMP/notebooks.txt"
+          if [ "$GITHUB_EVENT_NAME" = push ] && [ -n "$BEFORE" ] \
+             && [ "$BEFORE" != 0000000000000000000000000000000000000000 ] \
+             && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            git diff --name-only --diff-filter=AMR "$BEFORE" "$GITHUB_SHA" -- 'notebooks/*.ipynb' > "$list"
+          else
+            git ls-files -- 'notebooks/*.ipynb' > "$list"
+          fi
+          grep -v '\.ipynb_checkpoints/' "$list" > "$list.tmp" || true
+          mv "$list.tmp" "$list"
+          echo "Notebooks to execute:"; cat "$list"
+          echo "count=$(wc -l < "$list")" >> "$GITHUB_OUTPUT"
+
+      # (1) Lean: lake exe cache get && lake build in proofs/
+      - name: Lean
+        id: lean
+        if: hashFiles('proofs/lakefile.toml', 'proofs/lakefile.lean') != ''
+        continue-on-error: true
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: proofs
+          use-mathlib-cache: true
+          auto-config: false
+          build: true
+
+      - uses: astral-sh/setup-uv@v7
+        if: always()
+        with:
+          enable-cache: true
+
+      # (2) Notebooks: execute only the ones changed in this push
+      - name: Notebooks
+        id: notebooks
+        if: steps.changed.outputs.count != '0'
+        continue-on-error: true
+        run: |
+          uv sync --locked
+          failed=0
+          while IFS= read -r nb; do
+            [ -f "$nb" ] || continue
+            echo "::group::$nb"
+            if ! uv run jupyter nbconvert --to notebook --execute \
+                 --ExecutePreprocessor.timeout=600 \
+                 --output-dir "$RUNNER_TEMP/nb-out" "$nb"; then
+              echo "::error file=$nb::notebook failed to execute"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done < "$RUNNER_TEMP/notebooks.txt"
+          exit $failed
+
+      # (3) Essays: compile every .typ under essays/
+      - uses: typst-community/setup-typst@v5
+        if: hashFiles('essays/**/*.typ') != ''
+
+      - name: Essays
+        id: essays
+        if: hashFiles('essays/**/*.typ') != ''
+        continue-on-error: true
+        run: |
+          failed=0
+          mkdir -p "$RUNNER_TEMP/pdf"
+          while IFS= read -r f; do
+            out="$RUNNER_TEMP/pdf/$(echo "${f%.typ}" | tr / _).pdf"
+            if ! typst compile --root essays "$f" "$out"; then
+              echo "::error file=$f::typst compile failed"
+              failed=1
+            fi
+          done < <(find essays -name '*.typ' | sort)
+          exit $failed
+
+      # (4) Always: build progress.json and push it to the orphan branch `data`
+      - name: Publish progress.json
+        if: always()
+        env:
+          LEAN: ${{ steps.lean.outcome }}
+          NOTEBOOKS: ${{ steps.notebooks.outcome }}
+          ESSAYS: ${{ steps.essays.outcome }}
+          BEFORE: ${{ github.event.before }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          prev="$RUNNER_TEMP/previous.json"
+          if git rev-parse -q --verify origin/data >/dev/null; then
+            git show origin/data:progress.json > "$prev" 2>/dev/null || rm -f "$prev"
+          fi
+
+          uv run scripts/progress.py \
+            --lean "${LEAN:-skipped}" --notebooks "${NOTEBOOKS:-skipped}" --essays "${ESSAYS:-skipped}" \
+            --before "$BEFORE" --after "$GITHUB_SHA" \
+            --previous "$prev" --out "$RUNNER_TEMP/progress.json" \
+            --repo "$GITHUB_REPOSITORY" --run-url "$RUN_URL"
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          dir="$RUNNER_TEMP/data"
+          if git rev-parse -q --verify origin/data >/dev/null; then
+            git worktree add -B data "$dir" origin/data
+          else
+            git worktree add --detach "$dir" HEAD
+            git -C "$dir" checkout --orphan data
+            git -C "$dir" rm -rfq .
+          fi
+          cp "$RUNNER_TEMP/progress.json" "$dir/progress.json"
+          git -C "$dir" add progress.json
+          git -C "$dir" commit -q -m "progress: ${GITHUB_SHA::7} ($(jq -r .grade.status "$dir/progress.json"))"
+          git -C "$dir" push origin HEAD:refs/heads/data
+
+          status=$(jq -r .grade.status "$dir/progress.json")
+          echo "grade: $status" >> "$GITHUB_STEP_SUMMARY"
+          # Fail the run (red X) when any grader failed; progress.json is already published.
+          [ "$status" != fail ]
