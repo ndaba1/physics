@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "source": "theoretical-physics-master-curriculum.md",
+  "weeklyHoursTarget": 20,
+  "dailyMinutesTarget": 180,
+  "minimumDay": { "derivations": 1, "problems": 1, "log": true },
+  "rules": [
+    "Problems are the course.",
+    "Every module ends with a timed, closed-book exam from a real university.",
+    "Every stage ends with a capstone in a public repo.",
+    "Every overlap project is a lab attached to a physics or math module.",
+    "Crypto is one module, then a hobby.",
+    "Story before, original paper after.",
+    "Research notebook from day one. One derivation per day, even on bad days.",
+    "Don't jump ahead.",
+    "Two-week rule: miss two weeks, re-derive one thing, do one problem.",
+    "Never end a session without knowing the next problem."
+  ],
+  "milestones": [
+    { "id": "M0.a", "title": "Foundations + crypto", "proof": "Hammack done; RSA/ECC/AES repo; Cryptopals set 3", "moduleIds": ["M0.1", "M0.2"] }
+  ],
+  "stages": [
+    {
+      "id": "S0", "number": 0, "title": "Expanded mathematics spine", "durationMonths": "8–11",
+      "storyShelf": ["Strogatz, Infinite Powers"],
+      "modules": [
+        {
+          "id": "M0.1", "stageId": "S0", "order": 1, "title": "Proof, logic, mathematical writing",
+          "weeks": 2, "prereqs": [], "deliverableKind": "lean", "tags": ["math"],
+          "story": ["Dunham, Journey Through Genius Ch. 1–3"],
+          "core": [{ "title": "Hammack, Book of Proof", "url": "https://www.people.vcu.edu/~rhammack/BookOfProof/", "free": true, "note": "All of it, with exercises" }],
+          "derive": [
+            { "id": "M0.1.d1", "text": "√2 irrational" },
+            { "id": "M0.1.d2", "text": "Infinitely many primes" },
+            { "id": "M0.1.d3", "text": "Induction proofs of loop invariants for 3 algorithms you've written" }
+          ],
+          "build": [{ "id": "M0.1.b1", "line": "PROG", "text": "Property-based tests (Hypothesis) encoding proved invariants" }],
+          "exam": { "text": "Hammack chapter tests, self-graded", "passMark": 70 },
+          "original": [],
+          "units": [
+            { "week": 1, "title": "Logic, sets, direct proof", "input": "Hammack Ch. 1–5", "problems": "Hammack Ch. 1–5 exercises, odd numbers", "deriveIds": ["M0.1.d1", "M0.1.d2"], "buildIds": [] },
+            { "week": 2, "title": "Contrapositive, contradiction, induction", "input": "Hammack Ch. 6–10", "problems": "Hammack Ch. 6–10 exercises, odd numbers", "deriveIds": ["M0.1.d3"], "buildIds": ["M0.1.b1"] }
+          ]
+        },
+        {
+          "id": "M0.2", "stageId": "S0", "order": 2, "title": "Number theory & the math of cryptography",
+          "weeks": 3, "prereqs": ["M0.1"], "deliverableKind": "notebook", "tags": ["math", "crypto"],
+          "story": ["Singh, The Code Book", "Levy, Crypto"],
+          "core": [{ "title": "Shoup, A Computational Introduction to Number Theory and Algebra", "url": "https://shoup.net/ntb/", "free": true, "note": "Ch. 1–8" }],
+          "derive": [
+            { "id": "M0.2.d1", "text": "Euclid/Bézout" },
+            { "id": "M0.2.d2", "text": "Fermat's little theorem & Euler's theorem" },
+            { "id": "M0.2.d3", "text": "Why RSA decrypts" }
+          ],
+          "build": [{ "id": "M0.2.b1", "line": "CRYPTO", "text": "RSA keygen/encrypt/sign with a note on every attack" }],
+          "exam": { "text": "Boneh problem sets; Cambridge IA Numbers & Sets paper", "passMark": 70 },
+          "original": ["Diffie–Hellman 1976", "RSA 1977"],
+          "units": [
+            { "week": 1, "title": "Divisibility and Bézout", "input": "Shoup Ch. 1–2", "problems": "Shoup Ch. 1–2 exercises", "deriveIds": ["M0.2.d1"], "buildIds": [] },
+            { "week": 2, "title": "Congruences, Fermat, Euler", "input": "Shoup Ch. 3–5", "problems": "Shoup Ch. 3–5 exercises", "deriveIds": ["M0.2.d2"], "buildIds": [] },
+            { "week": 3, "title": "RSA", "input": "Shoup Ch. 6–8; Boneh week 5", "problems": "Cryptopals set 1", "deriveIds": ["M0.2.d3"], "buildIds": ["M0.2.b1"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

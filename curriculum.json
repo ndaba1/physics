@@ -1,0 +1,5439 @@
+{
+  "version": 1,
+  "source": "theoretical-physics-master-curriculum.md",
+  "weeklyHoursTarget": 20,
+  "dailyMinutesTarget": 180,
+  "minimumDay": {
+    "derivations": 1,
+    "problems": 1,
+    "log": true
+  },
+  "notes": [
+    "Stage 0 weeks come from the \"(N wk)\" in each module heading (M0.15 is \"3 wk focused, then ongoing\" → 3). Stage 0 total: 52 weeks; the 8–11 month range assumes M0.7–M0.10 overlap.",
+    "Stage 1 (5–7 months, 5 modules): midpoint ~6 months ≈ 26 weeks → 5 weeks per module, 25 weeks total.",
+    "Stage 2 (7–9 months, 6 modules): midpoint ~8 months ≈ 35 weeks → 6 weeks per module, 36 weeks total.",
+    "Stage 3 (7–9 months, 6 modules): midpoint ~8 months ≈ 35 weeks → 6 weeks per module, 36 weeks total.",
+    "Stage 4 (9–14 months, 7 modules incl. electives): midpoint ~11.5 months ≈ 50 weeks → 7 weeks per module, 49 weeks total; M4.7 covers 2 electives at 3 weeks each plus an optional third / thesis start.",
+    "Stage 1–4 modules have no Derive lists in the source, so their derive arrays are empty; the derivation of the day for those modules comes from the week's input.",
+    "Modules with no exam in the source (M1.5, M3.4, M3.6, M4.5, M4.7) carry exam.listed = false; their last unit names the nearest stand-in (milestone paper or self-set paper).",
+    "Builds tagged with several lines (e.g. PHYS + 3D) list all tags in 'lines'; 'line' is the first tag. M3.6 builds have no tag in the source and are tagged PHYS/PROG (lineInferred).",
+    "Unit week splits, chapter/lecture ranges per week and problem-set assignments are inferred from the Core resources; the source does not give them.",
+    "Stage 5 (research apprenticeship) has no modules and is represented only by milestone M5."
+  ],
+  "rules": [
+    "Problems are the course. Videos and reading prepare you for problems. A module is done when the problem sets are done. Three lectures ahead of your last problem set → stop, go back.",
+    "Every module ends with a timed, closed-book exam from a real university. Pass = 65% (70% for math, you have more hours). Fail → redo weak topics, sit a different paper. This rule is what makes the whole thing real.",
+    "Every stage ends with a capstone in a public repo. That repo is your transcript.",
+    "Every overlap project (3D, ML, crypto) is a lab attached to a physics or math module, finishable in 1–3 weekends. No engines, no frameworks. Small, finished, shipped.",
+    "Crypto is one module, then a hobby. ML and 3D get more room because they share math with the spine.",
+    "Story before, original paper after. Read the history before each module (motivation); read one original paper after it (proof you can follow it).",
+    "Research notebook from day one. Derivations, confusions, open questions. One derivation per day, even on bad days.",
+    "Don't jump ahead. The most common self-study death is watching QFT/GR lectures with undergrad math. The fun stuff is Stage 3+. The ticket is Stages 0–2.",
+    "Two-week rule. Miss two weeks → don't restart the module. Re-derive one thing from the notebook, do one problem. Re-entry is the whole game.",
+    "Never end a session without knowing the next problem. \"Do 4.7\" survives a bad week; \"continue chapter 4\" doesn't."
+  ],
+  "milestones": [
+    {
+      "id": "M0.a",
+      "title": "Foundations + crypto",
+      "proof": "Hammack done; RSA/ECC/AES repo; Cryptopals set 3",
+      "moduleIds": [
+        "M0.1",
+        "M0.2"
+      ]
+    },
+    {
+      "id": "M0.b",
+      "title": "Linear algebra + calculus",
+      "proof": "18.06 & 18.01 finals ≥ 70%; software rasterizer; autodiff engine",
+      "moduleIds": [
+        "M0.3",
+        "M0.4"
+      ]
+    },
+    {
+      "id": "M0.c",
+      "title": "Multivariable + ODEs",
+      "proof": "18.02 & 18.03 finals; physics engine; Lorenz short film",
+      "moduleIds": [
+        "M0.5",
+        "M0.6"
+      ]
+    },
+    {
+      "id": "M0.d",
+      "title": "Probability + optimization + Fourier",
+      "proof": "Stat 110 final; path tracer; Adam derived by hand; FFT; video compressor",
+      "moduleIds": [
+        "M0.7",
+        "M0.8",
+        "M0.9"
+      ]
+    },
+    {
+      "id": "M0.e",
+      "title": "Complex + groups",
+      "proof": "Cambridge IB Complex Methods & IA Groups papers; domain-coloring films; equivariant CNN",
+      "moduleIds": [
+        "M0.10",
+        "M0.11"
+      ]
+    },
+    {
+      "id": "M0.f",
+      "title": "Info theory/EBM + geometry + tensors + numerics",
+      "proof": "MacKay ★★ exercises; Hopfield→Boltzmann→JEPA sequence; curvature renderer; numerical toolbox v2",
+      "moduleIds": [
+        "M0.12",
+        "M0.13",
+        "M0.14",
+        "M0.15"
+      ]
+    },
+    {
+      "id": "M0",
+      "title": "Ready for physics",
+      "proof": "All above public + 15 \"what I learned\" essays",
+      "moduleIds": [
+        "M0.1",
+        "M0.2",
+        "M0.3",
+        "M0.4",
+        "M0.5",
+        "M0.6",
+        "M0.7",
+        "M0.8",
+        "M0.9",
+        "M0.10",
+        "M0.11",
+        "M0.12",
+        "M0.13",
+        "M0.14",
+        "M0.15"
+      ],
+      "detail": "All builds public + 15 short \"what I learned\" essays. Audit against 't Hooft's list through \"Classical Mechanics.\""
+    },
+    {
+      "id": "M1",
+      "title": "First year",
+      "proof": "8.01/8.02/8.03 finals; 3 lab reports; N-body capstone; 2021 paper rewritten with 4-vectors",
+      "moduleIds": [
+        "M1.1",
+        "M1.2",
+        "M1.3",
+        "M1.4",
+        "M1.5"
+      ],
+      "detail": "8.01/8.02/8.03 finals; attempt a Cambridge NST IA Physics paper; 3 lab reports; capstone: N-body gravity simulator (Barnes–Hut or direct) with a writeup on energy conservation vs integrator; 2021-paper rewrite."
+    },
+    {
+      "id": "M2",
+      "title": "Physics-degree level",
+      "proof": "Physics GRE practice ≥ 700 (800 = mastery); 8.04/8.05/8.07/8.044 finals; Ising paper in LaTeX",
+      "moduleIds": [
+        "M2.1",
+        "M2.2",
+        "M2.3",
+        "M2.4",
+        "M2.5",
+        "M2.6"
+      ],
+      "detail": "Physics GRE practice test ≥ 700 (800 = mastery); 8.04/8.05/8.07/8.044 finals; capstone: Ising project as a proper paper (LaTeX — learn it now; abstract, figures, references). Your first publication-shaped object."
+    },
+    {
+      "id": "M3",
+      "title": "Grad-school ready",
+      "proof": "A published PhD qualifying exam passed; black-hole ray tracer (Interstellar paper) or GW detection capstone; 't Hooft audit",
+      "moduleIds": [
+        "M3.1",
+        "M3.2",
+        "M3.3",
+        "M3.4",
+        "M3.5",
+        "M3.6"
+      ],
+      "detail": "Pass a published PhD qualifying exam (Columbia, Princeton publish solutions); capstone: the black-hole ray tracer, or matched-filter detection of GW150914 from GWOSC data recovering its parameters, or reproduce a figure from a recent arXiv paper with a report; 't Hooft audit through \"QFT.\""
+    },
+    {
+      "id": "M4",
+      "title": "Master's",
+      "proof": "Two Cambridge Part III papers at merit; thesis-scale project (30–60 pp) public",
+      "moduleIds": [
+        "M4.1",
+        "M4.2",
+        "M4.3",
+        "M4.4",
+        "M4.5",
+        "M4.6",
+        "M4.7"
+      ],
+      "detail": "Two Part III papers at what you honestly judge merit level (typically QFT + GR or QFT + SFT); capstone: a master's-thesis-scale project (30–60 pp, LaTeX) — a numerical study of a known model with one small novel twist, or a review with your own derivations. Post to arXiv (needs endorsement — see C6) or GitHub + ResearchGate."
+    },
+    {
+      "id": "M5",
+      "title": "Researcher",
+      "proof": "arXiv submission, or admission to a funded programme, or an active collaboration",
+      "moduleIds": [],
+      "detail": "Stage 5 — research apprenticeship (B5): converts M4 into a position or an independent research life. Research taste: by Stage 3, pick a question, not a field."
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "number": 0,
+      "title": "Expanded mathematics spine",
+      "durationMonths": "8–11",
+      "intro": "Modules in dependency order; M0.7–M0.10 can overlap.",
+      "storyShelf": [
+        "Strogatz, Infinite Powers — read it in week one; it's the \"why\" of this entire stage"
+      ],
+      "modules": [
+        {
+          "id": "M0.1",
+          "stageId": "S0",
+          "order": 1,
+          "title": "Proof, logic, mathematical writing",
+          "weeks": 2,
+          "prereqs": [],
+          "deliverableKind": "lean",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Dunham, Journey Through Genius Ch. 1–3 (Hippocrates, Euclid)"
+          ],
+          "core": [
+            {
+              "title": "Hammack, Book of Proof",
+              "url": "https://richardhammack.github.io/BookOfProof/",
+              "free": true,
+              "note": "Free PDF. All of it, with exercises."
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.1.d1",
+              "text": "√2 irrational"
+            },
+            {
+              "id": "M0.1.d2",
+              "text": "Infinitely many primes"
+            },
+            {
+              "id": "M0.1.d3",
+              "text": "Induction proofs of loop invariants for 3 algorithms you've written"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.1.b1",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "Property-based tests (Hypothesis) encoding proved invariants — proof and test are the same object"
+            }
+          ],
+          "exam": {
+            "text": "Hammack chapter tests, self-graded",
+            "passMark": 70
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Logic, sets, direct proof, contrapositive, contradiction",
+              "input": "Hammack Ch. 1–7",
+              "problems": "Hammack Ch. 1–7 exercises, odd numbers",
+              "deriveIds": [
+                "M0.1.d1",
+                "M0.1.d2"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Sets, disproof, induction, relations, functions, cardinality",
+              "input": "Hammack Ch. 8–14",
+              "problems": "Hammack Ch. 8–14 exercises, odd numbers; exam: Hammack chapter tests, self-graded",
+              "deriveIds": [
+                "M0.1.d3"
+              ],
+              "buildIds": [
+                "M0.1.b1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.2",
+          "stageId": "S0",
+          "order": 2,
+          "title": "Number theory & the math of cryptography",
+          "weeks": 3,
+          "prereqs": [
+            "M0.1"
+          ],
+          "deliverableKind": "lean",
+          "tags": [
+            "math",
+            "crypto"
+          ],
+          "story": [
+            "Singh, The Code Book",
+            "Levy, Crypto"
+          ],
+          "core": [
+            {
+              "title": "Shoup, A Computational Introduction to Number Theory and Algebra",
+              "url": "https://shoup.net/ntb/",
+              "free": true,
+              "note": "Ch. 1–8"
+            },
+            {
+              "title": "Boneh, Cryptography I (Stanford/Coursera)",
+              "url": "https://www.coursera.org/learn/crypto",
+              "free": true,
+              "note": "Free audit"
+            },
+            {
+              "title": "Cryptopals",
+              "url": "https://cryptopals.com/",
+              "free": true,
+              "note": "Sets 1–3"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.2.d1",
+              "text": "Euclid/Bézout"
+            },
+            {
+              "id": "M0.2.d2",
+              "text": "Fermat's little theorem & Euler's theorem"
+            },
+            {
+              "id": "M0.2.d3",
+              "text": "Why RSA decrypts"
+            },
+            {
+              "id": "M0.2.d4",
+              "text": "Why DH is safe if discrete log is hard"
+            },
+            {
+              "id": "M0.2.d5",
+              "text": "Elliptic-curve group law"
+            },
+            {
+              "id": "M0.2.d6",
+              "text": "Why Miller–Rabin works"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.2.b1",
+              "line": "CRYPTO",
+              "lines": [
+                "CRYPTO"
+              ],
+              "text": "RSA (keygen/encrypt/sign) with a note on every attack you're vulnerable to"
+            },
+            {
+              "id": "M0.2.b2",
+              "line": "CRYPTO",
+              "lines": [
+                "CRYPTO"
+              ],
+              "text": "DH over a prime field"
+            },
+            {
+              "id": "M0.2.b3",
+              "line": "CRYPTO",
+              "lines": [
+                "CRYPTO"
+              ],
+              "text": "EC point addition + scalar mult + ECDH"
+            },
+            {
+              "id": "M0.2.b4",
+              "line": "CRYPTO",
+              "lines": [
+                "CRYPTO"
+              ],
+              "text": "AES from spec (GF(2⁸) arithmetic — you'll meet this field again in M0.11)"
+            },
+            {
+              "id": "M0.2.b5",
+              "line": "CRYPTO",
+              "lines": [
+                "CRYPTO"
+              ],
+              "text": "Cryptopals sets 1–3"
+            }
+          ],
+          "exam": {
+            "text": "Boneh problem sets; Cambridge IA Numbers & Sets paper",
+            "passMark": 70
+          },
+          "original": [
+            "Diffie–Hellman 1976 (short)",
+            "RSA 1977 (short)"
+          ],
+          "notes": [
+            "Then it's a hobby. Returns at Stage 4 for Shor and lattice crypto."
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Integers, congruences, computing with large integers",
+              "input": "Shoup Ch. 1–3; Boneh Cryptography I weeks 1–2",
+              "problems": "Shoup Ch. 1–3 exercises; Cryptopals set 1",
+              "deriveIds": [
+                "M0.2.d1",
+                "M0.2.d2"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Euclid's algorithm, primes, abelian groups; RSA and DH",
+              "input": "Shoup Ch. 4–6; Boneh weeks 3–4",
+              "problems": "Shoup Ch. 4–6 exercises; Boneh problem sets weeks 1–4; Cryptopals set 2",
+              "deriveIds": [
+                "M0.2.d3",
+                "M0.2.d4"
+              ],
+              "buildIds": [
+                "M0.2.b1",
+                "M0.2.b2"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Rings, probability; elliptic curves and AES",
+              "input": "Shoup Ch. 7–8; Boneh weeks 5–6",
+              "problems": "Shoup Ch. 7–8 exercises; remaining Boneh problem sets; Cryptopals set 3; exam: Cambridge IA Numbers & Sets paper, timed",
+              "deriveIds": [
+                "M0.2.d5",
+                "M0.2.d6"
+              ],
+              "buildIds": [
+                "M0.2.b3",
+                "M0.2.b4",
+                "M0.2.b5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.3",
+          "stageId": "S0",
+          "order": 3,
+          "title": "Linear algebra, deeply",
+          "weeks": 5,
+          "prereqs": [
+            "M0.2"
+          ],
+          "deliverableKind": "lean",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Crowe, A History of Vector Analysis (Hamilton's quaternions vs Gibbs/Heaviside — the fight that decided how you write 3D code)",
+            "3Blue1Brown, Essence of Linear Algebra (once, for pictures)"
+          ],
+          "core": [
+            {
+              "title": "MIT 18.06 (Strang, OCW)",
+              "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+              "free": true,
+              "note": "All lectures + psets"
+            },
+            {
+              "title": "Axler, Linear Algebra Done Right 4th ed.",
+              "url": "https://linear.axler.net/",
+              "free": true,
+              "note": "Free, open access"
+            },
+            {
+              "title": "Boyd & Vandenberghe, Intro to Applied Linear Algebra",
+              "url": "https://web.stanford.edu/~boyd/vmls/",
+              "free": true,
+              "note": "For least squares"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.3.d1",
+              "text": "Gram–Schmidt → QR"
+            },
+            {
+              "id": "M0.3.d2",
+              "text": "Spectral theorem (symmetric)"
+            },
+            {
+              "id": "M0.3.d3",
+              "text": "SVD existence"
+            },
+            {
+              "id": "M0.3.d4",
+              "text": "Least squares by normal equations and projection"
+            },
+            {
+              "id": "M0.3.d5",
+              "text": "Eigenvalues of a rotation are e^{±iθ}"
+            },
+            {
+              "id": "M0.3.d6",
+              "text": "Change of basis"
+            },
+            {
+              "id": "M0.3.d7",
+              "text": "The 4×4 perspective projection matrix from first principles"
+            },
+            {
+              "id": "M0.3.d8",
+              "text": "Why quaternions represent rotations and why q and −q are the same rotation (this is the SU(2)→SO(3) double cover, i.e. spin)"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.3.b1",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Software rasterizer from scratch (follow ssloy tinyrenderer, free): model→world→camera→clip→screen, z-buffer, Phong. <1000 lines."
+            },
+            {
+              "id": "M0.3.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Quaternion lib + slerp"
+            },
+            {
+              "id": "M0.3.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Animated camera path exported to video"
+            },
+            {
+              "id": "M0.3.b4",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Gimbal-lock blog post"
+            },
+            {
+              "id": "M0.3.b5",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "PCA from scratch"
+            },
+            {
+              "id": "M0.3.b6",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "SVD image compression with a slider"
+            },
+            {
+              "id": "M0.3.b7",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "PageRank as an eigenvector"
+            },
+            {
+              "id": "M0.3.b8",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Normal modes of N coupled oscillators, animated"
+            }
+          ],
+          "exam": {
+            "text": "18.06 final ≥ 70%",
+            "passMark": 70
+          },
+          "original": [
+            "Hamilton's 1843 quaternion letter"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Elimination, matrices, vector spaces, the four subspaces",
+              "input": "18.06 lectures 1–10; Axler Ch. 1–3",
+              "problems": "18.06 psets for lectures 1–10; Axler Ch. 1–3 exercises (selected)",
+              "deriveIds": [
+                "M0.3.d6"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Orthogonality, projections, least squares, QR",
+              "input": "18.06 lectures 11–17; Axler Ch. 6; Boyd & Vandenberghe Ch. 12–13",
+              "problems": "18.06 psets for lectures 11–17; Boyd & Vandenberghe Ch. 12 exercises",
+              "deriveIds": [
+                "M0.3.d1",
+                "M0.3.d4"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Determinants, eigenvalues, rotations, projection matrices",
+              "input": "18.06 lectures 18–24; Axler Ch. 5",
+              "problems": "18.06 psets for lectures 18–24; Axler Ch. 5 exercises (selected)",
+              "deriveIds": [
+                "M0.3.d5",
+                "M0.3.d7"
+              ],
+              "buildIds": [
+                "M0.3.b1"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Symmetric matrices, the spectral theorem, SVD",
+              "input": "18.06 lectures 25–29; Axler Ch. 7",
+              "problems": "18.06 psets for lectures 25–29; Axler Ch. 7 exercises (selected)",
+              "deriveIds": [
+                "M0.3.d2",
+                "M0.3.d3"
+              ],
+              "buildIds": [
+                "M0.3.b5",
+                "M0.3.b6",
+                "M0.3.b7"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Linear transformations, quaternions, review",
+              "input": "18.06 lectures 30–34; Hamilton's 1843 letter",
+              "problems": "18.06 remaining psets; exam: 18.06 final, timed, closed-book (≥ 70%)",
+              "deriveIds": [
+                "M0.3.d8"
+              ],
+              "buildIds": [
+                "M0.3.b2",
+                "M0.3.b3",
+                "M0.3.b4",
+                "M0.3.b8"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.4",
+          "stageId": "S0",
+          "order": 4,
+          "title": "Single-variable calculus & analysis foundations",
+          "weeks": 4,
+          "prereqs": [
+            "M0.3"
+          ],
+          "deliverableKind": "lean",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Strogatz, Infinite Powers (whole book)",
+            "Bardi, The Calculus Wars (optional)"
+          ],
+          "core": [
+            {
+              "title": "MIT 18.01 (OCW)",
+              "url": "https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/",
+              "free": true,
+              "note": "For technique"
+            },
+            {
+              "title": "Spivak, Calculus",
+              "free": false,
+              "note": "For rigor, pick one of Spivak / Abbott / Lebl"
+            },
+            {
+              "title": "Abbott, Understanding Analysis",
+              "free": false,
+              "note": "For rigor, pick one of Spivak / Abbott / Lebl"
+            },
+            {
+              "title": "Lebl, Basic Analysis",
+              "url": "https://www.jirka.org/ra/",
+              "free": true,
+              "note": "For rigor, pick one of Spivak / Abbott / Lebl"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.4.d1",
+              "text": "FTC from Riemann sums"
+            },
+            {
+              "id": "M0.4.d2",
+              "text": "Taylor's theorem with remainder"
+            },
+            {
+              "id": "M0.4.d3",
+              "text": "Quadratic convergence of Newton's method"
+            },
+            {
+              "id": "M0.4.d4",
+              "text": "Five ε-δ proofs until boring"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.4.b1",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Reverse-mode autodiff engine (Karpathy, Neural Networks: Zero to Hero, free) — chain rule as algorithm; train a tiny MLP"
+            },
+            {
+              "id": "M0.4.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Bézier/B-splines: derive de Casteljau"
+            },
+            {
+              "id": "M0.4.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Arc-length reparametrization for constant-speed animation"
+            },
+            {
+              "id": "M0.4.b4",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Easing curves"
+            },
+            {
+              "id": "M0.4.b5",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "Adaptive integrators"
+            },
+            {
+              "id": "M0.4.b6",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "Newton–Raphson sphere-tracing an SDF shader (Inigo Quilez articles, free)"
+            }
+          ],
+          "exam": {
+            "text": "18.01 final",
+            "passMark": 70
+          },
+          "original": [
+            "Newton, Principia Book I §1–2",
+            "Archimedes, The Method"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Limits, continuity, ε-δ; differentiation",
+              "input": "18.01 Unit 1 (differentiation); Lebl Ch. 1–3 (or your chosen rigor text)",
+              "problems": "18.01 Unit 1 psets; Lebl Ch. 1–3 exercises (selected)",
+              "deriveIds": [
+                "M0.4.d4"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Applications of differentiation; Newton's method",
+              "input": "18.01 Unit 2; Lebl Ch. 4",
+              "problems": "18.01 Unit 2 psets; Lebl Ch. 4 exercises (selected)",
+              "deriveIds": [
+                "M0.4.d3"
+              ],
+              "buildIds": [
+                "M0.4.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Integration and the FTC",
+              "input": "18.01 Units 3–4 (integration, techniques); Lebl Ch. 5",
+              "problems": "18.01 Units 3–4 psets; Lebl Ch. 5 exercises (selected)",
+              "deriveIds": [
+                "M0.4.d1"
+              ],
+              "buildIds": [
+                "M0.4.b5",
+                "M0.4.b6"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Series and Taylor's theorem; curves",
+              "input": "18.01 Unit 5 (exploring the infinite); Lebl Ch. 6",
+              "problems": "18.01 Unit 5 psets; exam: 18.01 final, timed, closed-book",
+              "deriveIds": [
+                "M0.4.d2"
+              ],
+              "buildIds": [
+                "M0.4.b2",
+                "M0.4.b3",
+                "M0.4.b4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.5",
+          "stageId": "S0",
+          "order": 5,
+          "title": "Multivariable & vector calculus",
+          "weeks": 4,
+          "prereqs": [
+            "M0.4"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Crowe again (div/grad/curl were built for Maxwell)",
+            "Feynman Vol. II Ch. 1–3 (free)"
+          ],
+          "core": [
+            {
+              "title": "MIT 18.02 (OCW)",
+              "url": "https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/",
+              "free": true
+            },
+            {
+              "title": "Tong, Vector Calculus",
+              "url": "https://davidtong.org/teaching/vector-calculus/",
+              "free": true
+            },
+            {
+              "title": "Nearing, Mathematical Tools for Physics",
+              "url": "https://www.physics.miami.edu/~nearing/mathmethods/",
+              "free": true,
+              "note": "Ch. 8–9, 13"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.5.d1",
+              "text": "Gradient = steepest ascent (Cauchy–Schwarz)"
+            },
+            {
+              "id": "M0.5.d2",
+              "text": "Jacobian & change of variables"
+            },
+            {
+              "id": "M0.5.d3",
+              "text": "Green/Stokes/Gauss (prove on rectangles, argue general)"
+            },
+            {
+              "id": "M0.5.d4",
+              "text": "Lagrange multipliers geometrically"
+            },
+            {
+              "id": "M0.5.d5",
+              "text": "Hessian & second-derivative test"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.5.b1",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Gradient descent on 2D landscapes; saddles; conditioning"
+            },
+            {
+              "id": "M0.5.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Normal maps from height fields"
+            },
+            {
+              "id": "M0.5.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Curl flow-field visualizations"
+            },
+            {
+              "id": "M0.5.b4",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Perlin/simplex noise + gradient (procedural textures)"
+            },
+            {
+              "id": "M0.5.b5",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Numerical Gauss's law for a point charge through arbitrary meshes"
+            }
+          ],
+          "exam": {
+            "text": "18.02 final; Cambridge IA Vector Calculus paper",
+            "passMark": 70
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Vectors, matrices, partial derivatives, the gradient",
+              "input": "18.02 lectures 1–12; Feynman Vol. II Ch. 1–3",
+              "problems": "18.02 psets for lectures 1–12",
+              "deriveIds": [
+                "M0.5.d1",
+                "M0.5.d5"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Constrained optimization, double integrals, Jacobians",
+              "input": "18.02 lectures 13–20; Tong Vector Calculus: curves, surfaces and volumes",
+              "problems": "18.02 psets for lectures 13–20; Tong Vector Calculus example sheet 1",
+              "deriveIds": [
+                "M0.5.d2",
+                "M0.5.d4"
+              ],
+              "buildIds": [
+                "M0.5.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Line integrals, grad/div/curl, Green's theorem",
+              "input": "18.02 lectures 21–26; Tong Vector Calculus: grad, div and curl; Nearing Ch. 8–9",
+              "problems": "18.02 psets for lectures 21–26; Tong Vector Calculus example sheet 2",
+              "deriveIds": [
+                "M0.5.d3"
+              ],
+              "buildIds": [
+                "M0.5.b2",
+                "M0.5.b3"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Surface integrals, Stokes and Gauss",
+              "input": "18.02 lectures 27–35; Tong Vector Calculus: the integral theorems; Nearing Ch. 13",
+              "problems": "18.02 remaining psets; Tong example sheet 3; exam: 18.02 final + Cambridge IA Vector Calculus paper, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M0.5.b4",
+                "M0.5.b5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.6",
+          "stageId": "S0",
+          "order": 6,
+          "title": "ODEs & dynamical systems",
+          "weeks": 4,
+          "prereqs": [
+            "M0.5"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Gleick, Chaos"
+          ],
+          "core": [
+            {
+              "title": "MIT 18.03 (OCW)",
+              "url": "https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/",
+              "free": true
+            },
+            {
+              "title": "Strogatz, Nonlinear Dynamics and Chaos",
+              "free": false,
+              "note": "Essential"
+            },
+            {
+              "title": "Strogatz, Cornell lectures",
+              "free": true,
+              "note": "Free, YouTube"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.6.d1",
+              "text": "Picard existence (sketch)"
+            },
+            {
+              "id": "M0.6.d2",
+              "text": "Linear systems via eigenvalues"
+            },
+            {
+              "id": "M0.6.d3",
+              "text": "Phase-plane classification"
+            },
+            {
+              "id": "M0.6.d4",
+              "text": "Linearization"
+            },
+            {
+              "id": "M0.6.d5",
+              "text": "Logistic-map period doubling"
+            },
+            {
+              "id": "M0.6.d6",
+              "text": "Why RK4 is 4th order (Taylor-match it)"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.6.b1",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Small physics engine: Verlet, springs (Shiffman, Nature of Code, free)"
+            },
+            {
+              "id": "M0.6.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Small physics engine: constraints, cloth"
+            },
+            {
+              "id": "M0.6.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Small physics engine: rigid bodies with quaternions + angular momentum → Blender/Three.js"
+            },
+            {
+              "id": "M0.6.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Double pendulum"
+            },
+            {
+              "id": "M0.6.b5",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Lorenz attractor short film"
+            },
+            {
+              "id": "M0.6.b6",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Poincaré sections"
+            },
+            {
+              "id": "M0.6.b7",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Neural ODE (a ResNet is an Euler step — derive, then train one)"
+            }
+          ],
+          "exam": {
+            "text": "18.03 final",
+            "passMark": 70
+          },
+          "original": [
+            "Lorenz 1963"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "First-order ODEs, existence, flows on the line",
+              "input": "18.03 lectures 1–8; Strogatz Ch. 1–3",
+              "problems": "18.03 psets for lectures 1–8; Strogatz Ch. 2–3 exercises (selected)",
+              "deriveIds": [
+                "M0.6.d1",
+                "M0.6.d6"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Second-order linear ODEs and linear systems",
+              "input": "18.03 lectures 9–19; Strogatz Ch. 5",
+              "problems": "18.03 psets for lectures 9–19; Strogatz Ch. 5 exercises (selected)",
+              "deriveIds": [
+                "M0.6.d2"
+              ],
+              "buildIds": [
+                "M0.6.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Fourier/Laplace methods; the phase plane and linearization",
+              "input": "18.03 lectures 20–26; Strogatz Ch. 6–7",
+              "problems": "18.03 psets for lectures 20–26; Strogatz Ch. 6–7 exercises (selected)",
+              "deriveIds": [
+                "M0.6.d3",
+                "M0.6.d4"
+              ],
+              "buildIds": [
+                "M0.6.b2",
+                "M0.6.b3",
+                "M0.6.b4"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Nonlinear systems, chaos, the Lorenz equations",
+              "input": "18.03 lectures 27–33; Strogatz Ch. 8–10; Lorenz 1963",
+              "problems": "18.03 remaining psets; Strogatz Ch. 9–10 exercises (selected); exam: 18.03 final, timed",
+              "deriveIds": [
+                "M0.6.d5"
+              ],
+              "buildIds": [
+                "M0.6.b5",
+                "M0.6.b6",
+                "M0.6.b7"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.7",
+          "stageId": "S0",
+          "order": 7,
+          "title": "Probability & statistics",
+          "weeks": 5,
+          "prereqs": [
+            "M0.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math",
+            "ml"
+          ],
+          "story": [
+            "Bernstein, Against the Gods",
+            "Mlodinow, The Drunkard's Walk",
+            "McGrayne, The Theory That Would Not Die"
+          ],
+          "core": [
+            {
+              "title": "Blitzstein, Stat 110 (Harvard)",
+              "url": "https://projects.iq.harvard.edu/stat110",
+              "free": true,
+              "note": "Free lectures + free textbook"
+            },
+            {
+              "title": "MIT 6.041 (OCW)",
+              "url": "https://ocw.mit.edu/courses/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/",
+              "free": true,
+              "note": "Alternative to Stat 110"
+            },
+            {
+              "title": "Wasserman, All of Statistics",
+              "free": false,
+              "note": "The ML person's stats book"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.7.d1",
+              "text": "Bayes"
+            },
+            {
+              "id": "M0.7.d2",
+              "text": "Weak LLN via Chebyshev"
+            },
+            {
+              "id": "M0.7.d3",
+              "text": "CLT via MGFs"
+            },
+            {
+              "id": "M0.7.d4",
+              "text": "MLE = min cross-entropy"
+            },
+            {
+              "id": "M0.7.d5",
+              "text": "Gaussian is max-entropy at fixed variance (stat-mech bridge)"
+            },
+            {
+              "id": "M0.7.d6",
+              "text": "Metropolis rule satisfies detailed balance"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.7.b1",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Monte Carlo path tracer (Shirley, Ray Tracing in One Weekend, free)"
+            },
+            {
+              "id": "M0.7.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Path tracer, continued (Physically Based Rendering 4th ed., free at pbr-book.org): importance sampling, Russian roulette, variance vs samples. Rendering is Monte Carlo integration."
+            },
+            {
+              "id": "M0.7.b3",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Bayesian linear regression"
+            },
+            {
+              "id": "M0.7.b4",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Metropolis–Hastings sampler"
+            },
+            {
+              "id": "M0.7.b5",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "VI toy with the ELBO derived"
+            },
+            {
+              "id": "M0.7.b6",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Random walk → diffusion equation (this is the Ising code of Stage 2)"
+            }
+          ],
+          "exam": {
+            "text": "Stat 110 final (solutions free); 6.041 final",
+            "passMark": 70
+          },
+          "original": [
+            "Bayes 1763",
+            "Laplace, Philosophical Essay on Probabilities"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Counting, conditional probability, Bayes",
+              "input": "Stat 110 lectures 1–7; Blitzstein & Hwang Ch. 1–2",
+              "problems": "Stat 110 homework + strategic practice for Ch. 1–2",
+              "deriveIds": [
+                "M0.7.d1"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Random variables, expectation, continuous distributions",
+              "input": "Stat 110 lectures 8–15; Blitzstein & Hwang Ch. 3–5",
+              "problems": "Stat 110 homework for Ch. 3–5",
+              "deriveIds": [
+                "M0.7.d5"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Moments, MGFs, joint distributions, transformations",
+              "input": "Stat 110 lectures 16–23; Blitzstein & Hwang Ch. 6–8",
+              "problems": "Stat 110 homework for Ch. 6–8",
+              "deriveIds": [
+                "M0.7.d3"
+              ],
+              "buildIds": [
+                "M0.7.b1"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Conditional expectation, inequalities, limit theorems; MLE",
+              "input": "Stat 110 lectures 24–30; Blitzstein & Hwang Ch. 9–10; Wasserman Ch. 9 (parametric inference)",
+              "problems": "Stat 110 homework for Ch. 9–10; Wasserman Ch. 9 exercises (selected)",
+              "deriveIds": [
+                "M0.7.d2",
+                "M0.7.d4"
+              ],
+              "buildIds": [
+                "M0.7.b2",
+                "M0.7.b3"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Markov chains and MCMC",
+              "input": "Stat 110 lectures 31–35; Blitzstein & Hwang Ch. 11–12",
+              "problems": "Stat 110 homework for Ch. 11–12; exam: Stat 110 final, timed (then 6.041 final)",
+              "deriveIds": [
+                "M0.7.d6"
+              ],
+              "buildIds": [
+                "M0.7.b4",
+                "M0.7.b5",
+                "M0.7.b6"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.8",
+          "stageId": "S0",
+          "order": 8,
+          "title": "Optimization & calculus of variations",
+          "weeks": 3,
+          "prereqs": [
+            "M0.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math",
+            "ml"
+          ],
+          "story": [
+            "Coopersmith, The Lazy Universe",
+            "The 1696 brachistochrone challenge (MacTutor)"
+          ],
+          "core": [
+            {
+              "title": "Boyd & Vandenberghe, Convex Optimization",
+              "url": "https://web.stanford.edu/~boyd/cvxbook/",
+              "free": true,
+              "note": "Ch. 1–5, 9–11"
+            },
+            {
+              "title": "Stanford EE364a lectures",
+              "url": "https://web.stanford.edu/class/ee364a/",
+              "free": true
+            },
+            {
+              "title": "Tong, Classical Dynamics Ch. 1",
+              "url": "https://davidtong.org/teaching/classical-dynamics/",
+              "free": true,
+              "note": "For variations"
+            },
+            {
+              "title": "Gelfand & Fomin",
+              "free": false,
+              "note": "Dover; alternative to Tong for variations"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.8.d1",
+              "text": "Convex ⇒ local = global"
+            },
+            {
+              "id": "M0.8.d2",
+              "text": "GD convergence for L-smooth convex"
+            },
+            {
+              "id": "M0.8.d3",
+              "text": "Adam from first principles, then read the paper"
+            },
+            {
+              "id": "M0.8.d4",
+              "text": "KKT"
+            },
+            {
+              "id": "M0.8.d5",
+              "text": "Euler–Lagrange from δS = 0"
+            },
+            {
+              "id": "M0.8.d6",
+              "text": "Brachistochrone"
+            },
+            {
+              "id": "M0.8.d7",
+              "text": "Geodesics on a sphere (seed of GR)"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.8.b1",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Optimizer zoo (SGD/momentum/Nesterov/Adam/L-BFGS) on Rosenbrock + a small net"
+            },
+            {
+              "id": "M0.8.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Inverse kinematics for a rig via Jacobian transpose"
+            },
+            {
+              "id": "M0.8.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Constrained ragdoll"
+            },
+            {
+              "id": "M0.8.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Fermat's principle solver in a varying refractive index — Snell falls out (lensing preview)"
+            }
+          ],
+          "exam": {
+            "text": "EE364a homeworks; Cambridge IB Variational Principles paper",
+            "passMark": 70
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Convex sets, convex functions, convex problems",
+              "input": "Boyd & Vandenberghe Ch. 1–4; EE364a lectures on the same",
+              "problems": "EE364a homeworks covering Ch. 2–4",
+              "deriveIds": [
+                "M0.8.d1"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Duality, KKT, unconstrained minimization",
+              "input": "Boyd & Vandenberghe Ch. 5, 9; EE364a lectures on duality and descent methods",
+              "problems": "EE364a homeworks covering Ch. 5, 9",
+              "deriveIds": [
+                "M0.8.d2",
+                "M0.8.d3",
+                "M0.8.d4"
+              ],
+              "buildIds": [
+                "M0.8.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Constrained minimization; the calculus of variations",
+              "input": "Boyd & Vandenberghe Ch. 10–11; Tong Classical Dynamics Ch. 1 (or Gelfand & Fomin)",
+              "problems": "EE364a homeworks covering Ch. 10–11; Tong Classical Dynamics example sheet 1; exam: Cambridge IB Variational Principles paper, timed",
+              "deriveIds": [
+                "M0.8.d5",
+                "M0.8.d6",
+                "M0.8.d7"
+              ],
+              "buildIds": [
+                "M0.8.b2",
+                "M0.8.b3",
+                "M0.8.b4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.9",
+          "stageId": "S0",
+          "order": 9,
+          "title": "Fourier analysis & signal processing",
+          "weeks": 3,
+          "prereqs": [
+            "M0.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Strogatz Ch. 10",
+            "Fourier's intro to Théorie analytique de la chaleur",
+            "Cooley–Tukey story"
+          ],
+          "core": [
+            {
+              "title": "Osgood, Stanford EE261",
+              "url": "https://see.stanford.edu/Course/EE261",
+              "free": true,
+              "note": "Free lectures + free notes"
+            },
+            {
+              "title": "Nearing, Mathematical Tools for Physics",
+              "url": "https://www.physics.miami.edu/~nearing/mathmethods/",
+              "free": true,
+              "note": "Ch. 5, 15"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.9.d1",
+              "text": "Series coefficients by orthogonality"
+            },
+            {
+              "id": "M0.9.d2",
+              "text": "Transform pairs (Gaussian↔Gaussian, box↔sinc)"
+            },
+            {
+              "id": "M0.9.d3",
+              "text": "Convolution theorem"
+            },
+            {
+              "id": "M0.9.d4",
+              "text": "Sampling theorem"
+            },
+            {
+              "id": "M0.9.d5",
+              "text": "Uncertainty principle as a theorem about Fourier pairs"
+            },
+            {
+              "id": "M0.9.d6",
+              "text": "DFT & FFT recursion"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.9.b1",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "FFT from scratch, benchmarked"
+            },
+            {
+              "id": "M0.9.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "JPEG-style DCT compressor with quality slider"
+            },
+            {
+              "id": "M0.9.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Spectrograms"
+            },
+            {
+              "id": "M0.9.b4",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Convolution video effects in frequency space"
+            },
+            {
+              "id": "M0.9.b5",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Tiny denoiser"
+            },
+            {
+              "id": "M0.9.b6",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Conv layer = Fourier multiplication"
+            },
+            {
+              "id": "M0.9.b7",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Sinusoidal positional encodings as Fourier features"
+            },
+            {
+              "id": "M0.9.b8",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Heat & wave equations by series"
+            },
+            {
+              "id": "M0.9.b9",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Wave packets & dispersion"
+            }
+          ],
+          "exam": {
+            "text": "EE261 psets; MIT 8.03 final (partial)",
+            "passMark": 70
+          },
+          "original": [
+            "Shannon 1949 sampling paper"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Fourier series",
+              "input": "EE261 lectures 1–10 and the Fourier-series notes; Nearing Ch. 5",
+              "problems": "EE261 psets for lectures 1–10",
+              "deriveIds": [
+                "M0.9.d1",
+                "M0.9.d2"
+              ],
+              "buildIds": [
+                "M0.9.b8"
+              ]
+            },
+            {
+              "week": 2,
+              "title": "Fourier transform, convolution, uncertainty",
+              "input": "EE261 lectures 11–20 and notes; Nearing Ch. 15",
+              "problems": "EE261 psets for lectures 11–20",
+              "deriveIds": [
+                "M0.9.d3",
+                "M0.9.d5"
+              ],
+              "buildIds": [
+                "M0.9.b6",
+                "M0.9.b7",
+                "M0.9.b9"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Sampling, the DFT and the FFT",
+              "input": "EE261 lectures 21–30 and notes; Shannon 1949",
+              "problems": "EE261 remaining psets; exam: MIT 8.03 final (Fourier parts), timed",
+              "deriveIds": [
+                "M0.9.d4",
+                "M0.9.d6"
+              ],
+              "buildIds": [
+                "M0.9.b1",
+                "M0.9.b2",
+                "M0.9.b3",
+                "M0.9.b4",
+                "M0.9.b5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.10",
+          "stageId": "S0",
+          "order": 10,
+          "title": "Complex analysis",
+          "weeks": 3,
+          "prereqs": [
+            "M0.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Nahin, An Imaginary Tale"
+          ],
+          "core": [
+            {
+              "title": "Needham, Visual Complex Analysis",
+              "free": false,
+              "note": "For a visual/film brain, the book"
+            },
+            {
+              "title": "Nearing, Mathematical Tools for Physics",
+              "url": "https://www.physics.miami.edu/~nearing/mathmethods/",
+              "free": true,
+              "note": "Ch. 14; free alternative"
+            },
+            {
+              "title": "MIT 18.04 (OCW)",
+              "url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/",
+              "free": true,
+              "note": "Free alternative"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.10.d1",
+              "text": "Cauchy–Riemann"
+            },
+            {
+              "id": "M0.10.d2",
+              "text": "Cauchy's theorem & formula"
+            },
+            {
+              "id": "M0.10.d3",
+              "text": "Residue theorem"
+            },
+            {
+              "id": "M0.10.d4",
+              "text": "∫dx/(1+x²) and ∫sinx/x by contours"
+            },
+            {
+              "id": "M0.10.d5",
+              "text": "Euler's formula three ways"
+            },
+            {
+              "id": "M0.10.d6",
+              "text": "Why conformal maps preserve angles"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.10.b1",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Domain-coloring renderer"
+            },
+            {
+              "id": "M0.10.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Animated Möbius transformations on the Riemann sphere"
+            },
+            {
+              "id": "M0.10.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Joukowski airfoil"
+            },
+            {
+              "id": "M0.10.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "2D potential flow & electrostatics via conformal maps"
+            },
+            {
+              "id": "M0.10.b5",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Kramers–Kronig numerically (causality ↔ analyticity, returns in QFT)"
+            }
+          ],
+          "exam": {
+            "text": "Cambridge IB Complex Methods paper",
+            "passMark": 70
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Complex numbers, functions as maps, analyticity",
+              "input": "Needham Ch. 1–2, 4–5 (or Nearing Ch. 14 first half + 18.04 opening lectures)",
+              "problems": "Needham Ch. 1–2, 4–5 exercises (or 18.04 early psets)",
+              "deriveIds": [
+                "M0.10.d1",
+                "M0.10.d5",
+                "M0.10.d6"
+              ],
+              "buildIds": [
+                "M0.10.b1"
+              ]
+            },
+            {
+              "week": 2,
+              "title": "Möbius maps, winding numbers, Cauchy's theorem and formula",
+              "input": "Needham Ch. 3, 7–9 (or 18.04 integration lectures)",
+              "problems": "Needham Ch. 3, 7–9 exercises (or 18.04 middle psets)",
+              "deriveIds": [
+                "M0.10.d2",
+                "M0.10.d3"
+              ],
+              "buildIds": [
+                "M0.10.b2"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Residues, contour integrals, flows and harmonic functions",
+              "input": "Needham Ch. 10–12 (or 18.04 residue and conformal-map lectures)",
+              "problems": "18.04 remaining psets; exam: Cambridge IB Complex Methods paper, timed",
+              "deriveIds": [
+                "M0.10.d4"
+              ],
+              "buildIds": [
+                "M0.10.b3",
+                "M0.10.b4",
+                "M0.10.b5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.11",
+          "stageId": "S0",
+          "order": 11,
+          "title": "Groups, symmetry, abstract algebra",
+          "weeks": 4,
+          "prereqs": [
+            "M0.3"
+          ],
+          "deliverableKind": "lean",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Livio, The Equation That Couldn't Be Solved",
+            "Stewart, Why Beauty Is Truth",
+            "Neuenschwander, Emmy Noether's Wonderful Theorem"
+          ],
+          "core": [
+            {
+              "title": "Pinter, A Book of Abstract Algebra",
+              "free": false,
+              "note": "$15, Dover"
+            },
+            {
+              "title": "Judson, Abstract Algebra",
+              "free": true,
+              "note": "Free alternative to Pinter"
+            },
+            {
+              "title": "Zee, Group Theory in a Nutshell",
+              "free": false,
+              "note": "Later, at Stage 3"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.11.d1",
+              "text": "Lagrange's theorem"
+            },
+            {
+              "id": "M0.11.d2",
+              "text": "Cube symmetry group"
+            },
+            {
+              "id": "M0.11.d3",
+              "text": "SO(2)≅U(1)"
+            },
+            {
+              "id": "M0.11.d4",
+              "text": "SO(3), SU(2) and the 2:1 map (revisit quaternions — now you know what they are)"
+            },
+            {
+              "id": "M0.11.d5",
+              "text": "Why SO(3) irreps are labeled ℓ = 0,1,2,…"
+            },
+            {
+              "id": "M0.11.d6",
+              "text": "Noether's theorem for a 1D Lagrangian"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.11.b1",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Platonic solids + rotation-group animation"
+            },
+            {
+              "id": "M0.11.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "17 wallpaper-group tiling generator"
+            },
+            {
+              "id": "M0.11.b3",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Read Geometric Deep Learning (Bronstein et al., free arXiv)"
+            },
+            {
+              "id": "M0.11.b4",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Rotation-equivariant CNN on a toy task — symmetry in physics = equivariance in ML"
+            },
+            {
+              "id": "M0.11.b5",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Angular-momentum ladder operators from SU(2) commutators"
+            },
+            {
+              "id": "M0.11.b6",
+              "line": "CRYPTO",
+              "lines": [
+                "CRYPTO"
+              ],
+              "text": "Revisit EC (it's a group) and AES (GF(2⁸) is a field)"
+            }
+          ],
+          "exam": {
+            "text": "Cambridge IA Groups paper",
+            "passMark": 70
+          },
+          "original": [
+            "Galois' last letter",
+            "Noether 1918"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Operations, groups, subgroups, permutations",
+              "input": "Pinter Ch. 1–8 (or Judson equivalent)",
+              "problems": "Pinter Ch. 2–8 exercises (selected)",
+              "deriveIds": [
+                "M0.11.d2"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Isomorphism, cyclic groups, cosets, Lagrange",
+              "input": "Pinter Ch. 9–13",
+              "problems": "Pinter Ch. 9–13 exercises (selected)",
+              "deriveIds": [
+                "M0.11.d1",
+                "M0.11.d3"
+              ],
+              "buildIds": [
+                "M0.11.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Homomorphisms, quotients; SO(3), SU(2) and their representations",
+              "input": "Pinter Ch. 14–16; your M0.3 quaternion notes",
+              "problems": "Pinter Ch. 14–16 exercises (selected)",
+              "deriveIds": [
+                "M0.11.d4",
+                "M0.11.d5"
+              ],
+              "buildIds": [
+                "M0.11.b2",
+                "M0.11.b5"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Rings and fields; symmetry in physics and ML",
+              "input": "Pinter Ch. 17–24 (skim 25–30); Bronstein et al., Geometric Deep Learning",
+              "problems": "Pinter Ch. 17–22 exercises (selected); exam: Cambridge IA Groups paper, timed",
+              "deriveIds": [
+                "M0.11.d6"
+              ],
+              "buildIds": [
+                "M0.11.b3",
+                "M0.11.b4",
+                "M0.11.b6"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.12",
+          "stageId": "S0",
+          "order": 12,
+          "title": "Information theory, inference & the energy-based-model bridge",
+          "weeks": 4,
+          "prereqs": [
+            "M0.7"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math",
+            "ml"
+          ],
+          "story": [
+            "Gleick, The Information",
+            "Soni & Goodman, A Mind at Play",
+            "The 2024 physics Nobel (Hopfield, Hinton)"
+          ],
+          "core": [
+            {
+              "title": "MacKay, Information Theory, Inference, and Learning Algorithms",
+              "url": "https://www.inference.org.uk/mackay/itila/",
+              "free": true,
+              "note": "Free PDF + free Cambridge lectures — written for exactly your profile"
+            },
+            {
+              "title": "Cover & Thomas",
+              "free": false,
+              "note": "Supplement: Ch. 1–5"
+            },
+            {
+              "title": "LeCun et al., \"A Tutorial on Energy-Based Learning\" (2006)",
+              "free": true,
+              "note": "Supplement"
+            },
+            {
+              "title": "LeCun, \"A Path Towards Autonomous Machine Intelligence\" (2022, OpenReview)",
+              "free": true,
+              "note": "Supplement — the JEPA paper"
+            },
+            {
+              "title": "Assran et al., I-JEPA (arXiv 2301.08243)",
+              "url": "https://arxiv.org/abs/2301.08243",
+              "free": true,
+              "note": "Supplement"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.12.d1",
+              "text": "Entropy, KL, mutual information"
+            },
+            {
+              "id": "M0.12.d2",
+              "text": "Source coding theorem (sketch)"
+            },
+            {
+              "id": "M0.12.d3",
+              "text": "BSC capacity"
+            },
+            {
+              "id": "M0.12.d4",
+              "text": "Boltzmann distribution as max-entropy at fixed mean energy → softmax is Boltzmann, cross-entropy is free energy"
+            },
+            {
+              "id": "M0.12.d5",
+              "text": "Partition function & why it's intractable"
+            },
+            {
+              "id": "M0.12.d6",
+              "text": "Contrastive divergence"
+            },
+            {
+              "id": "M0.12.d7",
+              "text": "ELBO"
+            },
+            {
+              "id": "M0.12.d8",
+              "text": "Why JEPA avoids pixel-space reconstruction (in your own words after LeCun 2022)"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.12.b1",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "Huffman + arithmetic coders"
+            },
+            {
+              "id": "M0.12.b2",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "Entropy of English"
+            },
+            {
+              "id": "M0.12.b3",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "A Hamming/LDPC decoder"
+            },
+            {
+              "id": "M0.12.b4",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Hopfield network (energy landscape animated in 3D — film side)"
+            },
+            {
+              "id": "M0.12.b5",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Boltzmann machine (CD)"
+            },
+            {
+              "id": "M0.12.b6",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Small energy-based model on 2D toy data"
+            },
+            {
+              "id": "M0.12.b7",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Minimal joint-embedding SSL (VICReg-style)"
+            },
+            {
+              "id": "M0.12.b8",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "JEPA-style latent predictor on a small image set. Small, finished, documented."
+            }
+          ],
+          "exam": {
+            "text": "MacKay's ★ and ★★ exercises",
+            "passMark": 70
+          },
+          "original": [
+            "Shannon 1948 (read all of it)",
+            "Hopfield 1982"
+          ],
+          "notes": [
+            "The module that points at your ML project.",
+            "Returns: Stage 2 (partition function for spins), Stage 4 (RG ↔ deep learning)."
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Entropy, inference, source coding",
+              "input": "MacKay Ch. 1–6 + matching lectures; Cover & Thomas Ch. 1–2",
+              "problems": "MacKay ★/★★ exercises in Ch. 1–6",
+              "deriveIds": [
+                "M0.12.d1",
+                "M0.12.d2"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Noisy channels and error-correcting codes",
+              "input": "MacKay Ch. 8–11, 47 + matching lectures; Cover & Thomas Ch. 3–5",
+              "problems": "MacKay ★/★★ exercises in Ch. 8–11",
+              "deriveIds": [
+                "M0.12.d3"
+              ],
+              "buildIds": [
+                "M0.12.b1",
+                "M0.12.b2",
+                "M0.12.b3"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Boltzmann distribution, Monte Carlo, variational methods, energy-based learning",
+              "input": "MacKay Ch. 29, 31, 33; LeCun et al. 2006",
+              "problems": "MacKay ★/★★ exercises in Ch. 29, 31, 33",
+              "deriveIds": [
+                "M0.12.d4",
+                "M0.12.d5",
+                "M0.12.d7"
+              ],
+              "buildIds": [
+                "M0.12.b4",
+                "M0.12.b5"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Hopfield, Boltzmann machines, JEPA",
+              "input": "MacKay Ch. 42–43; LeCun 2022; Assran et al. I-JEPA",
+              "problems": "MacKay ★/★★ exercises in Ch. 42–43; exam: MacKay's ★ and ★★ exercises, timed sitting",
+              "deriveIds": [
+                "M0.12.d6",
+                "M0.12.d8"
+              ],
+              "buildIds": [
+                "M0.12.b6",
+                "M0.12.b7",
+                "M0.12.b8"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.13",
+          "stageId": "S0",
+          "order": 13,
+          "title": "Differential geometry of curves & surfaces",
+          "weeks": 3,
+          "prereqs": [
+            "M0.5"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Riemann's 1854 lecture \"On the Hypotheses which lie at the Bases of Geometry\" (free, ~20 pp — Einstein's framework in embryo)",
+            "MacTutor on Gauss"
+          ],
+          "core": [
+            {
+              "title": "Shifrin, Differential Geometry: Curves and Surfaces",
+              "url": "http://alpha.math.uga.edu/~shifrin/ShifrinDiffGeo.pdf",
+              "free": true,
+              "note": "Free, UGA"
+            },
+            {
+              "title": "Needham, Visual Differential Geometry and Forms",
+              "free": false,
+              "note": "Optional, extraordinary"
+            },
+            {
+              "title": "do Carmo",
+              "free": false,
+              "note": "Standard"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.13.d1",
+              "text": "Frenet–Serret"
+            },
+            {
+              "id": "M0.13.d2",
+              "text": "First & second fundamental forms"
+            },
+            {
+              "id": "M0.13.d3",
+              "text": "Gaussian curvature from the metric alone (Theorema Egregium — what makes GR possible)"
+            },
+            {
+              "id": "M0.13.d4",
+              "text": "Geodesic equation variationally"
+            },
+            {
+              "id": "M0.13.d5",
+              "text": "Gauss–Bonnet verified on sphere & torus"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.13.b1",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Curvature-shaded mesh renderer (Blender Python)"
+            },
+            {
+              "id": "M0.13.b2",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Geodesics on a mesh"
+            },
+            {
+              "id": "M0.13.b3",
+              "line": "3D",
+              "lines": [
+                "3D"
+              ],
+              "text": "Subdivision surfaces with limit-surface math"
+            },
+            {
+              "id": "M0.13.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Parallel transport on a sphere (holonomy = solid angle — a baby gauge field)"
+            },
+            {
+              "id": "M0.13.b5",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Christoffel symbols in SymPy for the 2-sphere and Poincaré disk"
+            }
+          ],
+          "exam": {
+            "text": "Shifrin psets; Cambridge II Differential Geometry paper (parts)",
+            "passMark": 70
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Curves: curvature, torsion, Frenet frame",
+              "input": "Shifrin Ch. 1",
+              "problems": "Shifrin Ch. 1 exercises",
+              "deriveIds": [
+                "M0.13.d1"
+              ],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Surfaces: fundamental forms, curvature, Theorema Egregium",
+              "input": "Shifrin Ch. 2",
+              "problems": "Shifrin Ch. 2 exercises",
+              "deriveIds": [
+                "M0.13.d2",
+                "M0.13.d3"
+              ],
+              "buildIds": [
+                "M0.13.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Geodesics, holonomy, Gauss–Bonnet",
+              "input": "Shifrin Ch. 3; Riemann 1854",
+              "problems": "Shifrin Ch. 3 exercises; exam: Cambridge II Differential Geometry paper (relevant parts), timed",
+              "deriveIds": [
+                "M0.13.d4",
+                "M0.13.d5"
+              ],
+              "buildIds": [
+                "M0.13.b2",
+                "M0.13.b3",
+                "M0.13.b4",
+                "M0.13.b5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.14",
+          "stageId": "S0",
+          "order": 14,
+          "title": "Tensors & multilinear algebra",
+          "weeks": 2,
+          "prereqs": [
+            "M0.13"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math"
+          ],
+          "story": [
+            "Einstein's 1912 plea to Grossmann (Pais, Subtle is the Lord)"
+          ],
+          "core": [
+            {
+              "title": "Tong, Vector Calculus",
+              "url": "https://davidtong.org/teaching/vector-calculus/",
+              "free": true,
+              "note": "Cartesian tensors"
+            },
+            {
+              "title": "Carroll, GR lecture notes (arXiv gr-qc/9712019)",
+              "url": "https://arxiv.org/abs/gr-qc/9712019",
+              "free": true,
+              "note": "Ch. 1–2"
+            },
+            {
+              "title": "Nearing, Mathematical Tools for Physics",
+              "url": "https://www.physics.miami.edu/~nearing/mathmethods/",
+              "free": true,
+              "note": "Ch. 12"
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.14.d1",
+              "text": "Co/contravariant transformation laws"
+            },
+            {
+              "id": "M0.14.d2",
+              "text": "Metric raises/lowers"
+            },
+            {
+              "id": "M0.14.d3",
+              "text": "ML \"tensor\" (array) vs physics tensor (multilinear map) and when they coincide"
+            },
+            {
+              "id": "M0.14.d4",
+              "text": "Levi-Civita and the cross product as an antisymmetric rank-2 tensor"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.14.b1",
+              "line": "PROG",
+              "lines": [
+                "PROG"
+              ],
+              "text": "einsum from scratch with broadcasting"
+            },
+            {
+              "id": "M0.14.b2",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "Extend M0.4 autograd to rank-n tensors"
+            },
+            {
+              "id": "M0.14.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "SymPy index-gymnastics checker"
+            }
+          ],
+          "exam": {
+            "text": "Carroll Ch. 1–2 exercises",
+            "passMark": 70
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Cartesian tensors, Levi-Civita",
+              "input": "Tong Vector Calculus: tensors chapter; Nearing Ch. 12",
+              "problems": "Tong Vector Calculus tensor example sheet; Nearing Ch. 12 problems (selected)",
+              "deriveIds": [
+                "M0.14.d3",
+                "M0.14.d4"
+              ],
+              "buildIds": [
+                "M0.14.b1"
+              ]
+            },
+            {
+              "week": 2,
+              "title": "Co/contravariance and the metric",
+              "input": "Carroll notes Ch. 1–2",
+              "problems": "exam: Carroll Ch. 1–2 exercises, timed and self-graded",
+              "deriveIds": [
+                "M0.14.d1",
+                "M0.14.d2"
+              ],
+              "buildIds": [
+                "M0.14.b2",
+                "M0.14.b3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M0.15",
+          "stageId": "S0",
+          "order": 15,
+          "title": "Numerical methods & scientific computing",
+          "weeks": 3,
+          "prereqs": [
+            "M0.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math",
+            "computing"
+          ],
+          "story": [
+            "Dyson, Turing's Cathedral"
+          ],
+          "core": [
+            {
+              "title": "Trefethen & Bau, Numerical Linear Algebra",
+              "free": false
+            },
+            {
+              "title": "Landau, Páez & Bordeianu, Computational Physics",
+              "free": true,
+              "note": "Free web edition"
+            },
+            {
+              "title": "Newman, Computational Physics",
+              "free": false
+            }
+          ],
+          "derive": [
+            {
+              "id": "M0.15.d1",
+              "text": "FP error bounds"
+            },
+            {
+              "id": "M0.15.d2",
+              "text": "Conditioning vs stability"
+            },
+            {
+              "id": "M0.15.d3",
+              "text": "Why elimination needs pivoting"
+            },
+            {
+              "id": "M0.15.d4",
+              "text": "Power-iteration convergence"
+            },
+            {
+              "id": "M0.15.d5",
+              "text": "Stability regions of Euler/RK/symplectic (why your engine explodes)"
+            },
+            {
+              "id": "M0.15.d6",
+              "text": "CFL condition"
+            }
+          ],
+          "build": [
+            {
+              "id": "M0.15.b1",
+              "line": "PROG",
+              "lines": [
+                "PROG",
+                "PHYS"
+              ],
+              "text": "Numerical toolbox v2: LU/QR/SVD"
+            },
+            {
+              "id": "M0.15.b2",
+              "line": "PROG",
+              "lines": [
+                "PROG",
+                "PHYS"
+              ],
+              "text": "Numerical toolbox v2: Lanczos"
+            },
+            {
+              "id": "M0.15.b3",
+              "line": "PROG",
+              "lines": [
+                "PROG",
+                "PHYS"
+              ],
+              "text": "Numerical toolbox v2: FFT"
+            },
+            {
+              "id": "M0.15.b4",
+              "line": "PROG",
+              "lines": [
+                "PROG",
+                "PHYS"
+              ],
+              "text": "Numerical toolbox v2: symplectic integrators"
+            },
+            {
+              "id": "M0.15.b5",
+              "line": "PROG",
+              "lines": [
+                "PROG",
+                "PHYS"
+              ],
+              "text": "Numerical toolbox v2: finite-difference solver for heat/wave/Schrödinger"
+            },
+            {
+              "id": "M0.15.b6",
+              "line": "ML",
+              "lines": [
+                "ML"
+              ],
+              "text": "GPU versions of two toolbox routines (CuPy or Triton)"
+            }
+          ],
+          "exam": {
+            "text": "The toolbox is the exam",
+            "passMark": 70
+          },
+          "original": [],
+          "weeksNote": "3 wk focused, then ongoing",
+          "units": [
+            {
+              "week": 1,
+              "title": "Floating point, conditioning, stability, LU and QR",
+              "input": "Trefethen & Bau Lectures 1–23",
+              "problems": "Trefethen & Bau exercises from Lectures 12–23 (selected)",
+              "deriveIds": [
+                "M0.15.d1",
+                "M0.15.d2",
+                "M0.15.d3"
+              ],
+              "buildIds": [
+                "M0.15.b1"
+              ]
+            },
+            {
+              "week": 2,
+              "title": "Eigenvalue algorithms and iterative methods",
+              "input": "Trefethen & Bau Lectures 24–28, 32–36",
+              "problems": "Trefethen & Bau exercises from Lectures 24–36 (selected)",
+              "deriveIds": [
+                "M0.15.d4"
+              ],
+              "buildIds": [
+                "M0.15.b2",
+                "M0.15.b3"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "ODE and PDE integrators",
+              "input": "Newman Ch. 8–9 (or Landau, Páez & Bordeianu ODE/PDE chapters)",
+              "problems": "Newman Ch. 8–9 exercises (selected); exam: the toolbox passes its own test suite",
+              "deriveIds": [
+                "M0.15.d5",
+                "M0.15.d6"
+              ],
+              "buildIds": [
+                "M0.15.b4",
+                "M0.15.b5",
+                "M0.15.b6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "number": 1,
+      "title": "Core physics I (first year)",
+      "durationMonths": "5–7",
+      "storyShelf": [
+        "Weinberg, To Explain the World",
+        "Galileo, Dialogues (public domain, funny)",
+        "Forbes & Mahon, Faraday, Maxwell, and the Electromagnetic Field",
+        "Pais, Subtle is the Lord (technical Einstein bio) or Isaacson, Einstein (popular)",
+        "Video: Feynman, The Character of Physical Law (free, YouTube) — all seven"
+      ],
+      "practicals": [
+        "Three home experiments written up as lab reports (see C3)"
+      ],
+      "modules": [
+        {
+          "id": "M1.1",
+          "stageId": "S1",
+          "order": 1,
+          "title": "Classical mechanics I",
+          "weeks": 5,
+          "prereqs": [
+            "M0.15",
+            "M0.12"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "MIT 8.01 (OCW)",
+              "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+              "free": true
+            },
+            {
+              "title": "Feynman Lectures Vol. I",
+              "url": "https://www.feynmanlectures.caltech.edu/I_toc.html",
+              "free": true,
+              "note": "Ch. 1–20"
+            },
+            {
+              "title": "OpenStax, University Physics Vol. 1",
+              "url": "https://openstax.org/details/books/university-physics-volume-1",
+              "free": true,
+              "note": "For extra problems"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M1.1.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Projectile with drag"
+            },
+            {
+              "id": "M1.1.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Orbits under 1/r² — verify Kepler numerically"
+            }
+          ],
+          "exam": {
+            "text": "8.01 final",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Kinematics in one and two dimensions",
+              "input": "8.01 weeks 1–2; Feynman Vol. I Ch. 1–8",
+              "problems": "8.01 problem sets for weeks 1–2; OpenStax Vol. 1 Ch. 2–4 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Newton's laws, forces, circular motion",
+              "input": "8.01 weeks 3–4; Feynman Vol. I Ch. 9–12",
+              "problems": "8.01 problem sets for weeks 3–4; OpenStax Vol. 1 Ch. 5–6 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.1.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Energy, momentum, collisions",
+              "input": "8.01 weeks 5–8; Feynman Vol. I Ch. 13–14",
+              "problems": "8.01 problem sets for weeks 5–8; OpenStax Vol. 1 Ch. 7–9 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Rotation and angular momentum",
+              "input": "8.01 weeks 9–12; Feynman Vol. I Ch. 18–20",
+              "problems": "8.01 problem sets for weeks 9–12; OpenStax Vol. 1 Ch. 10–11 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Gravitation, orbits, oscillations",
+              "input": "8.01 weeks 13–14; Feynman Vol. I Ch. 7, 15–17",
+              "problems": "8.01 remaining problem sets; OpenStax Vol. 1 Ch. 13–15 problems (selected); exam: 8.01 final, timed, closed-book",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.1.b2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M1.2",
+          "stageId": "S1",
+          "order": 2,
+          "title": "Special relativity",
+          "weeks": 5,
+          "prereqs": [
+            "M1.1"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Dynamics & Relativity",
+              "url": "https://davidtong.org/teaching/dynamics-and-relativity/",
+              "free": true,
+              "note": "Ch. 7"
+            },
+            {
+              "title": "MIT 8.033 (OCW)",
+              "url": "https://ocw.mit.edu/courses/8-033-relativity-fall-2006/",
+              "free": true
+            },
+            {
+              "title": "Susskind, Theoretical Minimum: Special Relativity",
+              "url": "https://theoreticalminimum.com/",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M1.2.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Lorentz-boost event sets"
+            },
+            {
+              "id": "M1.2.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Programmatic spacetime diagrams"
+            },
+            {
+              "id": "M1.2.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Twin paradox with accelerated frames — animated"
+            }
+          ],
+          "exam": {
+            "text": "8.033 midterm",
+            "passMark": 65
+          },
+          "original": [
+            "Einstein 1905, \"On the Electrodynamics of Moving Bodies\" (free at fourmilab.ch). Read after the module — it's short and you'll follow all of it."
+          ],
+          "checkpoint": "Re-read your 2021 paper. Rewrite its central claim with 4-vectors and the Lorentz group. Check whether \"time flows at c, relative velocity c − v\" yields γ = 1/√(1−v²/c²) without the λ fudge factor. Write up the answer either way. Killing your own idea rigorously is the most physicist thing you can do.",
+          "units": [
+            {
+              "week": 1,
+              "title": "Postulates and Lorentz transformations",
+              "input": "Tong D&R Ch. 7 (Lorentz transformations); 8.033 opening lectures; Susskind SR lectures 1–2",
+              "problems": "8.033 first problem set; Tong D&R Ch. 7 examples",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Time dilation, length contraction, spacetime diagrams",
+              "input": "Tong D&R Ch. 7 (kinematics); 8.033 lectures on kinematics",
+              "problems": "8.033 second problem set",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.2.b1",
+                "M1.2.b2"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Four-vectors and the Lorentz group",
+              "input": "Tong D&R Ch. 7 (four-vectors); 8.033 lectures on four-vectors; Susskind SR lectures 3–4",
+              "problems": "8.033 third problem set",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Relativistic dynamics, collisions, accelerated frames",
+              "input": "Tong D&R Ch. 7 (relativistic particles); 8.033 lectures on dynamics",
+              "problems": "8.033 fourth problem set",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.2.b3"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Review; the 2021-paper checkpoint",
+              "input": "Your 2021 paper; Einstein 1905 (after the exam)",
+              "problems": "Personal checkpoint write-up; exam: 8.033 midterm, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M1.3",
+          "stageId": "S1",
+          "order": 3,
+          "title": "Electricity & magnetism I",
+          "weeks": 5,
+          "prereqs": [
+            "M1.2"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "MIT 8.02 (OCW)",
+              "url": "https://ocw.mit.edu/courses/8-02-physics-ii-electricity-and-magnetism-spring-2007/",
+              "free": true
+            },
+            {
+              "title": "Feynman Lectures Vol. II",
+              "url": "https://www.feynmanlectures.caltech.edu/II_toc.html",
+              "free": true,
+              "note": "Ch. 1–15"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M1.3.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Laplace by relaxation"
+            },
+            {
+              "id": "M1.3.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Field plots of charge configurations"
+            }
+          ],
+          "exam": {
+            "text": "8.02 final",
+            "passMark": 65
+          },
+          "original": [
+            "Maxwell 1865, \"A Dynamical Theory of the Electromagnetic Field\" (free)"
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Electric fields and Gauss's law",
+              "input": "8.02 lectures on charge, fields, Gauss's law; Feynman Vol. II Ch. 1–5",
+              "problems": "8.02 problem sets for these lectures",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.3.b2"
+              ]
+            },
+            {
+              "week": 2,
+              "title": "Potential, conductors, capacitors, dielectrics",
+              "input": "8.02 lectures on potential and capacitance; Feynman Vol. II Ch. 6–12",
+              "problems": "8.02 problem sets for these lectures",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.3.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Current, circuits, magnetic fields",
+              "input": "8.02 lectures on current, DC circuits, magnetostatics; Feynman Vol. II Ch. 13–14",
+              "problems": "8.02 problem sets for these lectures",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Induction and the vector potential",
+              "input": "8.02 lectures on Faraday's law and inductance; Feynman Vol. II Ch. 15",
+              "problems": "8.02 problem sets for these lectures",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Maxwell's equations and EM waves",
+              "input": "8.02 lectures on displacement current and EM waves",
+              "problems": "8.02 remaining problem sets; exam: 8.02 final, timed, closed-book",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M1.4",
+          "stageId": "S1",
+          "order": 4,
+          "title": "Waves & vibrations",
+          "weeks": 5,
+          "prereqs": [
+            "M1.3"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "MIT 8.03 (Yen-Jie Lee, OCW)",
+              "url": "https://ocw.mit.edu/courses/8-03sc-physics-iii-vibrations-and-waves-fall-2016/",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M1.4.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Coupled oscillators → normal modes → continuum string"
+            },
+            {
+              "id": "M1.4.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Wave-optics simulator: diffraction & interference rendered (film line)"
+            }
+          ],
+          "exam": {
+            "text": "8.03 final",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Free, damped and driven oscillators",
+              "input": "8.03 lectures 1–4",
+              "problems": "8.03 psets 1–2",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Coupled oscillators and normal modes",
+              "input": "8.03 lectures 5–8",
+              "problems": "8.03 psets 3–4",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.4.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Waves on strings and the continuum limit",
+              "input": "8.03 lectures 9–13",
+              "problems": "8.03 psets 5–6",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "EM waves, dispersion, wave packets",
+              "input": "8.03 lectures 14–18",
+              "problems": "8.03 psets 7–8",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Interference and diffraction",
+              "input": "8.03 lectures 19–23",
+              "problems": "8.03 psets 9–10; exam: 8.03 final, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.4.b2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M1.5",
+          "stageId": "S1",
+          "order": 5,
+          "title": "Intro thermodynamics",
+          "weeks": 5,
+          "prereqs": [
+            "M1.4"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "OpenStax, University Physics Vol. 2",
+              "url": "https://openstax.org/details/books/university-physics-volume-2",
+              "free": true,
+              "note": "Ch. 1–4"
+            },
+            {
+              "title": "Feynman Lectures Vol. I",
+              "url": "https://www.feynmanlectures.caltech.edu/I_toc.html",
+              "free": true,
+              "note": "Ch. 39–46"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M1.5.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Hard-sphere molecular dynamics; watch Maxwell–Boltzmann emerge"
+            }
+          ],
+          "exam": {
+            "text": "No exam listed in the source document",
+            "passMark": 65,
+            "listed": false
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Temperature, heat, kinetic theory of gases",
+              "input": "OpenStax Vol. 2 Ch. 1–2; Feynman Vol. I Ch. 39–40",
+              "problems": "OpenStax Vol. 2 Ch. 1–2 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "The first law",
+              "input": "OpenStax Vol. 2 Ch. 3; Feynman Vol. I Ch. 41–42",
+              "problems": "OpenStax Vol. 2 Ch. 3 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M1.5.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "The second law, entropy, heat engines",
+              "input": "OpenStax Vol. 2 Ch. 4; Feynman Vol. I Ch. 44",
+              "problems": "OpenStax Vol. 2 Ch. 4 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Diffusion, ratchets, laws of thermodynamics in depth",
+              "input": "Feynman Vol. I Ch. 43, 45–46",
+              "problems": "Remaining OpenStax Vol. 2 Ch. 1–4 problems; a home-experiment lab report (C3)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Review and Stage 1 consolidation",
+              "input": "Your notebook: re-derive one result from each Stage 1 module",
+              "problems": "Mixed review problems; exam: none listed for this module — attempt a Cambridge NST IA Physics paper (Milestone M1)",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "number": 2,
+      "title": "Core physics II (second year)",
+      "durationMonths": "7–9",
+      "intro": "This is where math and physics fuse, and where most self-learners quit. Plan for it.",
+      "storyShelf": [
+        "Coopersmith, The Lazy Universe (action principles)",
+        "Feynman Vol. II Ch. 19 (least action, free)",
+        "Lindley, Boltzmann's Atom",
+        "Cercignani, Ludwig Boltzmann",
+        "Kumar, Quantum (Bohr–Einstein debate — best QM history)",
+        "Baggott, The Quantum Story",
+        "Lindley, Uncertainty",
+        "Farmelo, The Strangest Man (Dirac — read at end of stage)"
+      ],
+      "originals": [
+        "van der Waerden (ed.), Sources of Quantum Mechanics (Dover: Heisenberg 1925, Born–Jordan, Dirac 1925)",
+        "Schrödinger 1926 (free translations)",
+        "Noether 1918"
+      ],
+      "justInTimeMath": [
+        "Hilbert spaces & Hermitian operators (Tong QM Ch. 1; Axler revisited) — ML kernel methods/RKHS are Hilbert-space methods"
+      ],
+      "modules": [
+        {
+          "id": "M2.1",
+          "stageId": "S2",
+          "order": 1,
+          "title": "Classical mechanics II — Lagrangian & Hamiltonian",
+          "weeks": 6,
+          "prereqs": [
+            "M1.5"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Classical Dynamics",
+              "url": "https://davidtong.org/teaching/classical-dynamics/",
+              "free": true
+            },
+            {
+              "title": "Taylor, Classical Mechanics",
+              "free": false,
+              "note": "Ch. 6–13, best problems"
+            },
+            {
+              "title": "Susskind, Theoretical Minimum: Classical Mechanics",
+              "url": "https://theoreticalminimum.com/",
+              "free": true,
+              "note": "Free alternative to Taylor"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M2.1.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Double pendulum chaos"
+            },
+            {
+              "id": "M2.1.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Liouville's theorem via phase-space ensembles"
+            }
+          ],
+          "exam": {
+            "text": "Cambridge IB Classical Dynamics paper; MIT 8.223",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Calculus of variations and Lagrange's equations",
+              "input": "Tong Classical Dynamics Ch. 1–2 (first half); Taylor Ch. 6–7",
+              "problems": "Taylor Ch. 6–7 problems (selected); Tong Classical Dynamics example sheet 1",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Symmetries, Noether, central forces",
+              "input": "Tong Classical Dynamics Ch. 2 (rest); Taylor Ch. 8",
+              "problems": "Taylor Ch. 8 problems (selected); Tong example sheet 2",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Non-inertial frames and rigid bodies",
+              "input": "Tong Classical Dynamics Ch. 3; Taylor Ch. 9–10",
+              "problems": "Taylor Ch. 9–10 problems (selected); Tong example sheet 3",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Small oscillations and nonlinear dynamics",
+              "input": "Taylor Ch. 11–12",
+              "problems": "Taylor Ch. 11–12 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.1.b1"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Hamilton's equations, phase space, Liouville",
+              "input": "Tong Classical Dynamics Ch. 4 (first half); Taylor Ch. 13",
+              "problems": "Taylor Ch. 13 problems (selected); Tong example sheet 4",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.1.b2"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Poisson brackets, canonical transformations; review",
+              "input": "Tong Classical Dynamics Ch. 4 (rest)",
+              "problems": "MIT 8.223 problem sets; exam: Cambridge IB Classical Dynamics paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M2.2",
+          "stageId": "S2",
+          "order": 2,
+          "title": "Electrodynamics",
+          "weeks": 6,
+          "prereqs": [
+            "M2.1"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Griffiths, Introduction to Electrodynamics",
+              "free": false,
+              "note": "Ch. 1–12. Buy it; no free equivalent matches the problems"
+            },
+            {
+              "title": "Tong, Electromagnetism",
+              "url": "https://davidtong.org/teaching/electromagnetism/",
+              "free": true,
+              "note": "Free alternative, with Feynman Vol. II"
+            },
+            {
+              "title": "Feynman Lectures Vol. II",
+              "url": "https://www.feynmanlectures.caltech.edu/II_toc.html",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M2.2.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "FDTD EM wave hitting a dielectric"
+            },
+            {
+              "id": "M2.2.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Radiation from an accelerating charge"
+            }
+          ],
+          "exam": {
+            "text": "MIT 8.07 finals",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Vector analysis and electrostatics",
+              "input": "Griffiths Ch. 1–2",
+              "problems": "Griffiths Ch. 1–2 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Potentials; electric fields in matter",
+              "input": "Griffiths Ch. 3–4",
+              "problems": "Griffiths Ch. 3–4 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Magnetostatics; magnetic fields in matter",
+              "input": "Griffiths Ch. 5–6",
+              "problems": "Griffiths Ch. 5–6 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Electrodynamics and conservation laws",
+              "input": "Griffiths Ch. 7–8",
+              "problems": "Griffiths Ch. 7–8 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "EM waves; potentials and fields",
+              "input": "Griffiths Ch. 9–10",
+              "problems": "Griffiths Ch. 9–10 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.2.b1"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Radiation; electrodynamics and relativity",
+              "input": "Griffiths Ch. 11–12",
+              "problems": "Griffiths Ch. 11–12 problems (selected); exam: MIT 8.07 final, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.2.b2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M2.3",
+          "stageId": "S2",
+          "order": 3,
+          "title": "Quantum mechanics I",
+          "weeks": 6,
+          "prereqs": [
+            "M2.2"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "MIT 8.04 (Zwiebach/Adams, OCW)",
+              "url": "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/",
+              "free": true
+            },
+            {
+              "title": "Griffiths, Introduction to Quantum Mechanics",
+              "free": false,
+              "note": "Ch. 1–4"
+            },
+            {
+              "title": "Tong, Quantum Mechanics",
+              "url": "https://davidtong.org/teaching/quantum-mechanics/",
+              "free": true,
+              "note": "Free alternative to Griffiths"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M2.3.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Time-dependent Schrödinger via split-operator"
+            },
+            {
+              "id": "M2.3.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Tunneling"
+            },
+            {
+              "id": "M2.3.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Wavepacket scattering films"
+            }
+          ],
+          "exam": {
+            "text": "8.04 final",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "The wavefunction and its interpretation",
+              "input": "8.04 opening lectures; Griffiths Ch. 1",
+              "problems": "Griffiths Ch. 1 problems (selected); 8.04 psets for these lectures",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Stationary states: infinite well, harmonic oscillator",
+              "input": "Griffiths Ch. 2 (first half); 8.04 matching lectures",
+              "problems": "Griffiths Ch. 2 problems, first half (selected); 8.04 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.3.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Free particle, delta and finite wells, 1D scattering",
+              "input": "Griffiths Ch. 2 (second half); 8.04 matching lectures",
+              "problems": "Griffiths Ch. 2 problems, second half (selected); 8.04 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.3.b2"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Formalism: Hilbert space, observables, uncertainty",
+              "input": "Griffiths Ch. 3; Tong QM Ch. 1 (just-in-time math)",
+              "problems": "Griffiths Ch. 3 problems (selected); 8.04 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "QM in three dimensions: angular momentum, hydrogen",
+              "input": "Griffiths Ch. 4 (first half); 8.04 matching lectures",
+              "problems": "Griffiths Ch. 4 problems, first half (selected); 8.04 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.3.b3"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Spin; review",
+              "input": "Griffiths Ch. 4 (rest)",
+              "problems": "Griffiths Ch. 4 problems, second half (selected); exam: 8.04 final, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M2.4",
+          "stageId": "S2",
+          "order": 4,
+          "title": "Quantum mechanics II",
+          "weeks": 6,
+          "prereqs": [
+            "M2.3"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "MIT 8.05 (Zwiebach)",
+              "url": "https://ocw.mit.edu/courses/8-05-quantum-physics-ii-fall-2013/",
+              "free": true
+            },
+            {
+              "title": "Griffiths, Introduction to Quantum Mechanics",
+              "free": false,
+              "note": "Ch. 5–11"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M2.4.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Hydrogen radial equation diagonalized"
+            },
+            {
+              "id": "M2.4.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Zeeman splitting"
+            },
+            {
+              "id": "M2.4.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Spin-½ in a B field"
+            }
+          ],
+          "exam": {
+            "text": "8.05 final",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Vector spaces, operators, Dirac notation",
+              "input": "8.05 lectures on linear algebra and Dirac notation",
+              "problems": "8.05 psets for these lectures",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Spin-½ and two-state systems",
+              "input": "8.05 lectures on spin and two-state systems",
+              "problems": "8.05 psets for these lectures",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.4.b3"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Coherent states; identical particles",
+              "input": "8.05 lectures on the harmonic oscillator and coherent states; Griffiths Ch. 5",
+              "problems": "8.05 psets; Griffiths Ch. 5 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Angular momentum and its addition; time-independent perturbation theory",
+              "input": "8.05 angular-momentum lectures; Griffiths Ch. 6 (perturbation theory)",
+              "problems": "8.05 psets; Griffiths perturbation-theory problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.4.b1"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Fine structure, Zeeman effect; variational principle and WKB",
+              "input": "Griffiths Ch. 7–8 (variational, WKB)",
+              "problems": "Griffiths Ch. 7–8 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.4.b2"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Time-dependent perturbation theory and scattering",
+              "input": "Griffiths Ch. 9–11",
+              "problems": "Griffiths Ch. 9–11 problems (selected); exam: 8.05 final, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M2.5",
+          "stageId": "S2",
+          "order": 5,
+          "title": "Statistical mechanics",
+          "weeks": 6,
+          "prereqs": [
+            "M2.4"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics",
+            "ml"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Statistical Physics",
+              "url": "https://davidtong.org/teaching/statistical-physics/",
+              "free": true
+            },
+            {
+              "title": "MIT 8.044 (OCW)",
+              "url": "https://ocw.mit.edu/courses/8-044-statistical-physics-i-spring-2013/",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M2.5.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "2D Ising model, Metropolis Monte Carlo"
+            },
+            {
+              "id": "M2.5.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Find T_c"
+            },
+            {
+              "id": "M2.5.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Measure critical exponents"
+            },
+            {
+              "id": "M2.5.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Animate the phase transition (film line)"
+            },
+            {
+              "id": "M2.5.b5",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Essay: the Ising sampler is a Boltzmann machine — connect to M0.12"
+            }
+          ],
+          "exam": {
+            "text": "8.044 final; Cambridge IB Thermodynamics paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Microcanonical and canonical ensembles",
+              "input": "Tong Statistical Physics: fundamentals; 8.044 lectures on ensembles",
+              "problems": "Tong Statistical Physics example sheet 1; 8.044 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Classical gases",
+              "input": "Tong Statistical Physics: classical gases",
+              "problems": "Tong example sheet 2; 8.044 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Quantum gases",
+              "input": "Tong Statistical Physics: quantum gases",
+              "problems": "Tong example sheet 3; 8.044 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.5.b1"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Classical thermodynamics",
+              "input": "Tong Statistical Physics: classical thermodynamics; 8.044 thermodynamics lectures",
+              "problems": "Tong example sheet 4; Cambridge IB Thermodynamics past questions",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.5.b2"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Phase transitions and the Ising model",
+              "input": "Tong Statistical Physics: phase transitions",
+              "problems": "Tong example sheet 5",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.5.b3",
+                "M2.5.b4"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Ising ↔ Boltzmann machine; review",
+              "input": "MacKay Ch. 31 and 43 (revisit from M0.12)",
+              "problems": "8.044 review problems; exam: 8.044 final + Cambridge IB Thermodynamics paper, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.5.b5"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M2.6",
+          "stageId": "S2",
+          "order": 6,
+          "title": "Math methods II",
+          "weeks": 6,
+          "prereqs": [
+            "M2.5"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math",
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Nearing, Mathematical Tools for Physics",
+              "url": "https://www.physics.miami.edu/~nearing/mathmethods/",
+              "free": true,
+              "note": "Ch. 8–17 (Green's functions, PDEs, intro group theory)"
+            },
+            {
+              "title": "Tong, Methods-adjacent notes",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M2.6.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Green's function of the Poisson equation numerically"
+            }
+          ],
+          "exam": {
+            "text": "Cambridge IB Methods paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Multivariable and vector calculus revisited; PDEs",
+              "input": "Nearing Ch. 8–10",
+              "problems": "Nearing Ch. 8–10 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Numerical analysis; tensors",
+              "input": "Nearing Ch. 11–12",
+              "problems": "Nearing Ch. 11–12 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Vector calculus II; complex variables",
+              "input": "Nearing Ch. 13–14",
+              "problems": "Nearing Ch. 13–14 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Fourier analysis",
+              "input": "Nearing Ch. 15",
+              "problems": "Nearing Ch. 15 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Calculus of variations; densities and distributions; Green's functions",
+              "input": "Nearing Ch. 16–17",
+              "problems": "Nearing Ch. 16–17 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M2.6.b1"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Review: Cambridge IB Methods",
+              "input": "Cambridge IB Methods past papers",
+              "problems": "IB Methods past questions; a Physics GRE practice test (Milestone M2); exam: Cambridge IB Methods paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "number": 3,
+      "title": "Advanced undergraduate",
+      "durationMonths": "7–9",
+      "storyShelf": [
+        "Ferreira, The Perfect Theory (a century of GR)",
+        "Thorne, Black Holes and Time Warps",
+        "Einstein, Relativity: The Special and General Theory (free, public domain, written for the public)",
+        "Crease & Mann, The Second Creation (building the Standard Model)",
+        "Close, The Infinity Puzzle",
+        "Singh, Big Bang",
+        "Weinberg, The First Three Minutes",
+        "Film side: James, von Tunzelmann, Franklin & Thorne, \"Gravitational Lensing by Spinning Black Holes… in the Movie Interstellar\" (arXiv 1502.03808)"
+      ],
+      "originals": [
+        "Einstein 1915/16 field-equation papers",
+        "Yang–Mills 1954",
+        "Hubble 1929",
+        "Penzias–Wilson 1965 (one page)"
+      ],
+      "justInTimeMath": [
+        "Manifolds, forms, Lie derivatives, connections (Carroll Ch. 2–3; Needham VDGF; Baez & Muniain, Gauge Fields, Knots and Gravity $)",
+        "Lie algebras & reps of SU(2), SU(3), Lorentz group (Zee, Group Theory in a Nutshell $; Tong) — ML equivariant nets over Lie groups"
+      ],
+      "modules": [
+        {
+          "id": "M3.1",
+          "stageId": "S3",
+          "order": 1,
+          "title": "Quantum mechanics III",
+          "weeks": 6,
+          "prereqs": [
+            "M2.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "MIT 8.06 (Zwiebach)",
+              "url": "https://ocw.mit.edu/courses/8-06-quantum-physics-iii-spring-2018/",
+              "free": true
+            },
+            {
+              "title": "Sakurai & Napolitano, Modern Quantum Mechanics",
+              "free": false,
+              "note": "Ch. 1–5"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M3.1.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Perturbation theory vs exact numerically"
+            },
+            {
+              "id": "M3.1.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Scattering phase shifts"
+            }
+          ],
+          "exam": {
+            "text": "8.06 final",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Fundamental concepts",
+              "input": "Sakurai Ch. 1",
+              "problems": "Sakurai Ch. 1 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Quantum dynamics and path integrals",
+              "input": "Sakurai Ch. 2",
+              "problems": "Sakurai Ch. 2 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Theory of angular momentum",
+              "input": "Sakurai Ch. 3",
+              "problems": "Sakurai Ch. 3 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Symmetry in quantum mechanics",
+              "input": "Sakurai Ch. 4; 8.06 perturbation-theory lectures",
+              "problems": "Sakurai Ch. 4 problems (selected); 8.06 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.1.b1"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Approximation methods: perturbation theory, WKB, adiabatic",
+              "input": "Sakurai Ch. 5; 8.06 matching lectures",
+              "problems": "Sakurai Ch. 5 problems (selected); 8.06 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "Scattering",
+              "input": "8.06 scattering lectures",
+              "problems": "8.06 remaining psets; exam: 8.06 final, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.1.b2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M3.2",
+          "stageId": "S3",
+          "order": 2,
+          "title": "General relativity I",
+          "weeks": 6,
+          "prereqs": [
+            "M3.1"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Carroll, GR lecture notes (arXiv gr-qc/9712019)",
+              "url": "https://arxiv.org/abs/gr-qc/9712019",
+              "free": true,
+              "note": "Ch. 1–5"
+            },
+            {
+              "title": "MIT 8.962 (Scott Hughes, OCW)",
+              "url": "https://ocw.mit.edu/courses/8-962-general-relativity-spring-2020/",
+              "free": true,
+              "note": "Full video"
+            },
+            {
+              "title": "Susskind, Theoretical Minimum: General Relativity",
+              "url": "https://theoreticalminimum.com/",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M3.2.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Geodesics in Schwarzschild"
+            },
+            {
+              "id": "M3.2.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Perihelion precession"
+            },
+            {
+              "id": "M3.2.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Black-hole ray tracer reproducing the Interstellar paper — the film line's capstone"
+            }
+          ],
+          "exam": {
+            "text": "8.962 final",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Special relativity and flat spacetime",
+              "input": "Carroll Ch. 1; 8.962 opening lectures",
+              "problems": "Carroll Ch. 1 exercises; 8.962 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Manifolds",
+              "input": "Carroll Ch. 2; 8.962 matching lectures",
+              "problems": "Carroll Ch. 2 exercises; 8.962 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Curvature",
+              "input": "Carroll Ch. 3; 8.962 matching lectures",
+              "problems": "Carroll Ch. 3 exercises; 8.962 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Gravitation and Einstein's equation",
+              "input": "Carroll Ch. 4; 8.962 matching lectures",
+              "problems": "Carroll Ch. 4 exercises; 8.962 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "The Schwarzschild solution",
+              "input": "Carroll Ch. 5; 8.962 matching lectures",
+              "problems": "Carroll Ch. 5 exercises; 8.962 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.2.b1",
+                "M3.2.b2"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Black holes and ray tracing; review",
+              "input": "8.962 black-hole lectures; James et al., Interstellar paper (arXiv 1502.03808)",
+              "problems": "8.962 remaining psets; exam: 8.962 final, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.2.b3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M3.3",
+          "stageId": "S3",
+          "order": 3,
+          "title": "Solid state / condensed matter",
+          "weeks": 6,
+          "prereqs": [
+            "M3.2"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Solid State",
+              "url": "https://davidtong.org/teaching/solid-state-physics/",
+              "free": true
+            },
+            {
+              "title": "Steve Simon, Oxford solid-state lectures",
+              "free": true,
+              "note": "Free, YouTube"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M3.3.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Tight-binding band structure of graphene"
+            }
+          ],
+          "exam": {
+            "text": "Oxford Part B Condensed Matter paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Particles in a box; free electrons",
+              "input": "Tong Solid State: opening chapter; Simon's matching lectures",
+              "problems": "Tong Solid State example sheet 1",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Lattices and reciprocal space",
+              "input": "Tong Solid State: lattices; Simon's matching lectures",
+              "problems": "Tong example sheet 2",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Band structure and tight binding",
+              "input": "Tong Solid State: band structure; Simon's matching lectures",
+              "problems": "Tong example sheet 3",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.3.b1"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Electron dynamics in solids",
+              "input": "Tong Solid State: electron dynamics; Simon's matching lectures",
+              "problems": "Tong example sheet 4",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Phonons",
+              "input": "Tong Solid State: phonons; Simon's matching lectures",
+              "problems": "Tong example sheet 5",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "Magnetism; review",
+              "input": "Tong Solid State: remaining chapters",
+              "problems": "Oxford Part B Condensed Matter past questions; exam: Oxford Part B Condensed Matter paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M3.4",
+          "stageId": "S3",
+          "order": 4,
+          "title": "Particle & nuclear physics (survey)",
+          "weeks": 6,
+          "prereqs": [
+            "M3.3"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Particle Physics",
+              "url": "https://davidtong.org/teaching/particle-physics/",
+              "free": true
+            },
+            {
+              "title": "Griffiths, Introduction to Elementary Particles",
+              "free": false,
+              "note": "Alternative to Tong"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M3.4.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "CERN Open Data: reconstruct the Z peak from dimuon events"
+            }
+          ],
+          "exam": {
+            "text": "No exam listed in the source document",
+            "passMark": 65,
+            "listed": false
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Particles, dynamics, relativistic kinematics",
+              "input": "Griffiths EP Ch. 1–3 (or Tong Particle Physics opening sections)",
+              "problems": "Griffiths EP Ch. 3 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Symmetries and bound states",
+              "input": "Griffiths EP Ch. 4–5",
+              "problems": "Griffiths EP Ch. 4–5 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Feynman calculus and QED",
+              "input": "Griffiths EP Ch. 6–7",
+              "problems": "Griffiths EP Ch. 6–7 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Quarks, hadrons, QCD",
+              "input": "Griffiths EP Ch. 8–9",
+              "problems": "Griffiths EP Ch. 8–9 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.4.b1"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Weak interactions and gauge theories",
+              "input": "Griffiths EP Ch. 10–11",
+              "problems": "Griffiths EP Ch. 10–11 problems (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "Neutrinos, nuclear physics; review",
+              "input": "Griffiths EP Ch. 12; Tong Particle Physics nuclear sections",
+              "problems": "Mixed review problems; exam: none listed for this module — self-set a timed paper from Griffiths EP problems",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M3.5",
+          "stageId": "S3",
+          "order": 5,
+          "title": "Astrophysics & cosmology",
+          "weeks": 6,
+          "prereqs": [
+            "M3.4"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Cosmology",
+              "url": "https://davidtong.org/teaching/cosmology/",
+              "free": true
+            },
+            {
+              "title": "Susskind, Theoretical Minimum: Cosmology",
+              "url": "https://theoreticalminimum.com/",
+              "free": true
+            },
+            {
+              "title": "Ryden, Introduction to Cosmology",
+              "free": false,
+              "note": "Optional"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M3.5.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Friedmann equations"
+            },
+            {
+              "id": "M3.5.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Fit supernova data for Ω_Λ"
+            },
+            {
+              "id": "M3.5.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "CMB power spectrum from Planck data"
+            }
+          ],
+          "exam": {
+            "text": "Cambridge II Cosmology paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "The expanding universe",
+              "input": "Tong Cosmology: expanding universe; Ryden Ch. 1–3; Hubble 1929",
+              "problems": "Tong Cosmology example sheet 1",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Cosmic dynamics and the Friedmann equations",
+              "input": "Tong Cosmology: Friedmann equations; Ryden Ch. 4–5",
+              "problems": "Tong example sheet 2",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.5.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "Measuring cosmological parameters",
+              "input": "Ryden Ch. 6; Susskind Cosmology matching lectures",
+              "problems": "Ryden Ch. 6 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.5.b2"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Dark matter and the CMB",
+              "input": "Tong Cosmology: the hot universe; Ryden Ch. 7–8; Penzias–Wilson 1965",
+              "problems": "Tong example sheet 3",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Nucleosynthesis and inflation",
+              "input": "Ryden Ch. 9–10; Tong Cosmology matching sections",
+              "problems": "Ryden Ch. 9–10 problems (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.5.b3"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Structure formation; review",
+              "input": "Tong Cosmology: structure formation; Ryden Ch. 11–12",
+              "problems": "Tong example sheet 4; exam: Cambridge II Cosmology paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M3.6",
+          "stageId": "S3",
+          "order": 6,
+          "title": "Computational physics (formal)",
+          "weeks": 6,
+          "prereqs": [
+            "M3.5"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics",
+            "computing"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Landau, Páez & Bordeianu, Computational Physics",
+              "free": true,
+              "note": "Free web edition"
+            },
+            {
+              "title": "Newman, Computational Physics",
+              "free": false,
+              "note": "Alternative"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M3.6.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "PROG"
+              ],
+              "text": "Spectral methods — level up the toolbox",
+              "lineInferred": true
+            },
+            {
+              "id": "M3.6.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "PROG"
+              ],
+              "text": "Variational methods — level up the toolbox",
+              "lineInferred": true
+            },
+            {
+              "id": "M3.6.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "PROG"
+              ],
+              "text": "Finite element — level up the toolbox",
+              "lineInferred": true
+            }
+          ],
+          "exam": {
+            "text": "No exam listed in the source document",
+            "passMark": 65,
+            "listed": false
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Integrals, derivatives, linear and nonlinear equations",
+              "input": "Newman Ch. 5–6 (or Landau/Páez/Bordeianu equivalents)",
+              "problems": "Newman Ch. 5–6 exercises (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Fourier transforms and spectral methods",
+              "input": "Newman Ch. 7 and the spectral-methods section of Ch. 9",
+              "problems": "Newman Ch. 7 exercises (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.6.b1"
+              ]
+            },
+            {
+              "week": 3,
+              "title": "ODEs and PDEs",
+              "input": "Newman Ch. 8–9",
+              "problems": "Newman Ch. 8–9 exercises (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Random processes and Monte Carlo",
+              "input": "Newman Ch. 10",
+              "problems": "Newman Ch. 10 exercises (selected)",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Variational methods",
+              "input": "Landau/Páez/Bordeianu chapters on variational and eigenvalue methods",
+              "problems": "Variational-method problems from Landau/Páez/Bordeianu (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.6.b2"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Finite elements; review",
+              "input": "Landau/Páez/Bordeianu finite-element chapter",
+              "problems": "Finite-element problems (selected); exam: none listed for this module — the toolbox upgrade is the check; sit a published PhD qualifying exam (Milestone M3)",
+              "deriveIds": [],
+              "buildIds": [
+                "M3.6.b3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "number": 4,
+      "title": "Master's level (Cambridge Part III / Perimeter PSI)",
+      "durationMonths": "9–14",
+      "intro": "You now watch actual master's courses (PIRSA has every PSI lecture, free) and sit actual master's exams (Part III past papers, free).",
+      "storyShelf": [
+        "Feynman, QED: The Strange Theory of Light and Matter",
+        "Schweber, QED and the Men Who Made It (technical history)",
+        "Gleick, Genius",
+        "Kaiser, Drawing Theories Apart (how Feynman diagrams spread)",
+        "Hossenfelder, Lost in Math (the critics — read all three so you enter with eyes open)",
+        "Smolin, The Trouble with Physics (the critics)",
+        "Woit, Not Even Wrong (the critics)"
+      ],
+      "originals": [
+        "Dirac 1928",
+        "Feynman 1949",
+        "Bell 1964 (one of the great short papers)",
+        "Shor 1994"
+      ],
+      "justInTimeMath": [
+        "Functional integrals, Grassmann variables, distributions (Tong QFT; Srednicki)",
+        "Renormalization group (Kardar 8.334; Tong SFT)",
+        "ML: Score-based/diffusion models are Langevin dynamics (Song et al. 2021); RG ↔ deep learning (Mehta & Schwab 2014, arXiv) — a live frontier sitting exactly on your two interests"
+      ],
+      "modules": [
+        {
+          "id": "M4.1",
+          "stageId": "S4",
+          "order": 1,
+          "title": "Quantum field theory I",
+          "weeks": 7,
+          "prereqs": [
+            "M3.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, QFT",
+              "url": "https://davidtong.org/teaching/quantum-field-theory/",
+              "free": true
+            },
+            {
+              "title": "PSI QFT I (PIRSA)",
+              "url": "https://pirsa.org/",
+              "free": true
+            },
+            {
+              "title": "Srednicki, QFT (free draft, author's site)",
+              "url": "https://web.physics.ucsb.edu/~mark/qft.html",
+              "free": true,
+              "note": "Ch. 1–30"
+            },
+            {
+              "title": "Peskin & Schroeder",
+              "free": false,
+              "note": "Part I; the lingua franca"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M4.1.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Lattice φ⁴ in 2D by Monte Carlo"
+            },
+            {
+              "id": "M4.1.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Measure the mass gap"
+            },
+            {
+              "id": "M4.1.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "3D"
+              ],
+              "text": "Visualize field configurations"
+            }
+          ],
+          "exam": {
+            "text": "Cambridge Part III QFT paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Classical field theory, Lorentz invariance",
+              "input": "Tong QFT Ch. 1; Srednicki Ch. 1–2; PSI QFT I opening lectures",
+              "problems": "Tong QFT example sheet 1",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Canonical quantization of free fields",
+              "input": "Tong QFT Ch. 2; Srednicki Ch. 3–4; Peskin & Schroeder Ch. 2",
+              "problems": "Tong example sheet 1 (rest); Peskin & Schroeder Ch. 2 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Interacting fields, LSZ, Feynman diagrams",
+              "input": "Tong QFT Ch. 3; Srednicki Ch. 5, 9–10; Peskin & Schroeder Ch. 4",
+              "problems": "Tong example sheet 2; Peskin & Schroeder Ch. 4 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.1.b1"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Path integrals, propagators, cross sections",
+              "input": "Srednicki Ch. 6–8, 11–12; PSI QFT I matching lectures",
+              "problems": "Srednicki problems for Ch. 6–12 (selected)",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.1.b2"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "The Dirac equation and the Dirac field",
+              "input": "Tong QFT Ch. 4–5; Peskin & Schroeder Ch. 3",
+              "problems": "Tong example sheet 3; Peskin & Schroeder Ch. 3 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "QED; loops and renormalization",
+              "input": "Tong QFT Ch. 6; Peskin & Schroeder Ch. 5; Srednicki Ch. 14–20",
+              "problems": "Tong example sheet 4; Peskin & Schroeder Ch. 5 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.1.b3"
+              ]
+            },
+            {
+              "week": 7,
+              "title": "Renormalization group and symmetries; review",
+              "input": "Srednicki Ch. 21–30; PSI QFT I closing lectures",
+              "problems": "Part III QFT past papers; exam: Cambridge Part III QFT paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M4.2",
+          "stageId": "S4",
+          "order": 2,
+          "title": "Quantum field theory II",
+          "weeks": 7,
+          "prereqs": [
+            "M4.1"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Gauge Theory",
+              "url": "https://davidtong.org/teaching/gauge-theory/",
+              "free": true
+            },
+            {
+              "title": "Peskin & Schroeder",
+              "free": false,
+              "note": "Parts II–III"
+            },
+            {
+              "title": "Schwartz",
+              "free": false,
+              "note": "Optional"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M4.2.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Tree-level cross section symbolically (SymPy/FeynCalc) vs PDG"
+            }
+          ],
+          "exam": {
+            "text": "Part III Advanced QFT / Standard Model papers",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Systematics of renormalization",
+              "input": "Peskin & Schroeder Ch. 10",
+              "problems": "Peskin & Schroeder Ch. 10 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Renormalization and symmetry; the renormalization group",
+              "input": "Peskin & Schroeder Ch. 11–12",
+              "problems": "Peskin & Schroeder Ch. 11–12 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Non-abelian gauge theory",
+              "input": "Peskin & Schroeder Ch. 15–16; Tong Gauge Theory: Yang–Mills",
+              "problems": "Peskin & Schroeder Ch. 15–16 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "QCD",
+              "input": "Peskin & Schroeder Ch. 17–18",
+              "problems": "Peskin & Schroeder Ch. 17 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.2.b1"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Anomalies",
+              "input": "Peskin & Schroeder Ch. 19; Tong Gauge Theory: anomalies",
+              "problems": "Peskin & Schroeder Ch. 19 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "Spontaneously broken gauge theories",
+              "input": "Peskin & Schroeder Ch. 20–21",
+              "problems": "Peskin & Schroeder Ch. 20–21 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 7,
+              "title": "The Standard Model; review",
+              "input": "Tong Gauge Theory remaining chapters; Schwartz Standard Model chapters (optional)",
+              "problems": "Part III Advanced QFT / Standard Model past papers; exam: Part III Advanced QFT or Standard Model paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M4.3",
+          "stageId": "S4",
+          "order": 3,
+          "title": "General relativity II",
+          "weeks": 7,
+          "prereqs": [
+            "M4.2"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Wald",
+              "free": false,
+              "note": "The standard"
+            },
+            {
+              "title": "Carroll, Spacetime and Geometry (full book)",
+              "free": false,
+              "note": "Alternative to Wald"
+            },
+            {
+              "title": "PSI GR lectures (PIRSA)",
+              "url": "https://pirsa.org/",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M4.3.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS"
+              ],
+              "text": "Evolve a simple spacetime numerically (1+1D spherically symmetric scalar collapse)"
+            }
+          ],
+          "exam": {
+            "text": "Part III GR paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Manifolds, tensor fields, curvature",
+              "input": "Wald Ch. 1–3; PSI GR opening lectures",
+              "problems": "Wald Ch. 2–3 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Einstein's equation",
+              "input": "Wald Ch. 4",
+              "problems": "Wald Ch. 4 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Cosmology and the Schwarzschild solution",
+              "input": "Wald Ch. 5–6",
+              "problems": "Wald Ch. 5–6 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Stationary axisymmetric spacetimes; Kerr",
+              "input": "Wald Ch. 7 (or Carroll Ch. 6)",
+              "problems": "Wald Ch. 7 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Causal structure and singularities",
+              "input": "Wald Ch. 8–9",
+              "problems": "Wald Ch. 8–9 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "The initial value formulation",
+              "input": "Wald Ch. 10",
+              "problems": "Wald Ch. 10 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.3.b1"
+              ]
+            },
+            {
+              "week": 7,
+              "title": "Asymptotic flatness, charged and rotating black holes; review",
+              "input": "Wald Ch. 11–12; PSI GR closing lectures",
+              "problems": "Part III GR past papers; exam: Part III GR paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M4.4",
+          "stageId": "S4",
+          "order": 4,
+          "title": "Statistical field theory & RG",
+          "weeks": 7,
+          "prereqs": [
+            "M4.3"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics",
+            "ml"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, Statistical Field Theory",
+              "url": "https://davidtong.org/teaching/statistical-field-theory/",
+              "free": true
+            },
+            {
+              "title": "Kardar, MIT 8.334 (OCW)",
+              "url": "https://ocw.mit.edu/courses/8-334-statistical-mechanics-ii-statistical-physics-of-fields-spring-2014/",
+              "free": true,
+              "note": "Video"
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M4.4.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Real-space RG on Ising"
+            },
+            {
+              "id": "M4.4.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Compute ν vs your Stage 2 Monte Carlo"
+            },
+            {
+              "id": "M4.4.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Animate RG flow"
+            },
+            {
+              "id": "M4.4.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "ML"
+              ],
+              "text": "Write the RG ↔ deep learning essay — the ML line's capstone"
+            }
+          ],
+          "exam": {
+            "text": "Part III Statistical Field Theory paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Phase transitions and Landau theory",
+              "input": "Tong SFT opening chapter; 8.334 opening lectures",
+              "problems": "Tong SFT example sheet 1",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Fluctuations and Landau–Ginzburg",
+              "input": "Tong SFT: Landau–Ginzburg; 8.334 matching lectures",
+              "problems": "Tong example sheet 2; 8.334 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Scaling hypothesis",
+              "input": "8.334 scaling lectures; Tong SFT matching sections",
+              "problems": "8.334 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Perturbative RG and the ε-expansion",
+              "input": "Tong SFT: the renormalisation group; 8.334 matching lectures",
+              "problems": "Tong example sheet 3; 8.334 psets",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Position-space RG",
+              "input": "8.334 position-space RG lectures",
+              "problems": "8.334 psets",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.4.b1",
+                "M4.4.b2"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Continuous symmetries, the XY model, Kosterlitz–Thouless",
+              "input": "Tong SFT closing chapters; 8.334 matching lectures",
+              "problems": "Tong example sheet 4",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.4.b3"
+              ]
+            },
+            {
+              "week": 7,
+              "title": "RG ↔ deep learning; review",
+              "input": "Mehta & Schwab 2014 (arXiv)",
+              "problems": "Part III SFT past papers; exam: Part III Statistical Field Theory paper, timed",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.4.b4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M4.5",
+          "stageId": "S4",
+          "order": 5,
+          "title": "Quantum information",
+          "weeks": 7,
+          "prereqs": [
+            "M4.4"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics",
+            "crypto"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Preskill, Ph219 notes",
+              "url": "https://www.preskill.caltech.edu/ph229/",
+              "free": true
+            },
+            {
+              "title": "PSI quantum information course (PIRSA)",
+              "url": "https://pirsa.org/",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [
+            {
+              "id": "M4.5.b1",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "CRYPTO"
+              ],
+              "text": "Small quantum-circuit simulator"
+            },
+            {
+              "id": "M4.5.b2",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "CRYPTO"
+              ],
+              "text": "Shor for n=15"
+            },
+            {
+              "id": "M4.5.b3",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "CRYPTO"
+              ],
+              "text": "Bell violation numerically"
+            },
+            {
+              "id": "M4.5.b4",
+              "line": "PHYS",
+              "lines": [
+                "PHYS",
+                "CRYPTO"
+              ],
+              "text": "A toy lattice-based (Kyber-style) scheme — crypto line closed"
+            }
+          ],
+          "exam": {
+            "text": "No exam listed in the source document",
+            "passMark": 65,
+            "listed": false
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Introduction; states and ensembles",
+              "input": "Preskill Ch. 1–2",
+              "problems": "Preskill Ch. 2 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Measurement and evolution",
+              "input": "Preskill Ch. 3",
+              "problems": "Preskill Ch. 3 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Quantum entanglement",
+              "input": "Preskill Ch. 4; Bell 1964",
+              "problems": "Preskill Ch. 4 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.5.b3"
+              ]
+            },
+            {
+              "week": 4,
+              "title": "Classical and quantum circuits",
+              "input": "Preskill Ch. 5",
+              "problems": "Preskill Ch. 5 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.5.b1"
+              ]
+            },
+            {
+              "week": 5,
+              "title": "Quantum algorithms",
+              "input": "Preskill Ch. 6; Shor 1994",
+              "problems": "Preskill Ch. 6 problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.5.b2"
+              ]
+            },
+            {
+              "week": 6,
+              "title": "Quantum error correction",
+              "input": "Preskill Ch. 7",
+              "problems": "Preskill Ch. 7 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 7,
+              "title": "Quantum Shannon theory; lattice crypto",
+              "input": "Preskill Ch. 10; PSI course closing lectures",
+              "problems": "Preskill Ch. 10 problems; exam: none listed for this module — self-set a timed paper from Preskill problems",
+              "deriveIds": [],
+              "buildIds": [
+                "M4.5.b4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M4.6",
+          "stageId": "S4",
+          "order": 6,
+          "title": "Advanced math",
+          "weeks": 7,
+          "prereqs": [
+            "M4.5"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "math",
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Nakahara, Geometry, Topology and Physics",
+              "free": false
+            },
+            {
+              "title": "Lie groups (Tong-adjacent notes)",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [],
+          "exam": {
+            "text": "Part III Symmetries, Fields & Particles paper",
+            "passMark": 65
+          },
+          "original": [],
+          "units": [
+            {
+              "week": 1,
+              "title": "Mathematical preliminaries and homology",
+              "input": "Nakahara Ch. 2–3",
+              "problems": "Nakahara Ch. 2–3 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Homotopy groups",
+              "input": "Nakahara Ch. 4",
+              "problems": "Nakahara Ch. 4 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Manifolds and de Rham cohomology",
+              "input": "Nakahara Ch. 5–6",
+              "problems": "Nakahara Ch. 5–6 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Riemannian geometry",
+              "input": "Nakahara Ch. 7",
+              "problems": "Nakahara Ch. 7 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Lie groups and Lie algebras",
+              "input": "Lie groups (Tong-adjacent notes)",
+              "problems": "Exercises from the Lie-group notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "Fibre bundles and connections",
+              "input": "Nakahara Ch. 9–10",
+              "problems": "Nakahara Ch. 9–10 problems",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 7,
+              "title": "Characteristic classes; review",
+              "input": "Nakahara Ch. 11",
+              "problems": "Part III Symmetries, Fields & Particles past papers; exam: Part III Symmetries, Fields & Particles paper, timed",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        },
+        {
+          "id": "M4.7",
+          "stageId": "S4",
+          "order": 7,
+          "title": "Electives (pick 2–3)",
+          "weeks": 7,
+          "prereqs": [
+            "M4.6"
+          ],
+          "deliverableKind": "notebook",
+          "tags": [
+            "physics"
+          ],
+          "story": [],
+          "core": [
+            {
+              "title": "Tong, String Theory",
+              "url": "https://davidtong.org/teaching/string-theory/",
+              "free": true
+            },
+            {
+              "title": "Bilal, Supersymmetry (arXiv)",
+              "url": "https://arxiv.org/abs/hep-th/0101055",
+              "free": true
+            },
+            {
+              "title": "Baumann, Cosmology",
+              "free": true,
+              "note": "Free, Cambridge"
+            },
+            {
+              "title": "Townsend, Black Holes (arXiv)",
+              "url": "https://arxiv.org/abs/gr-qc/9707012",
+              "free": true
+            },
+            {
+              "title": "AdS/CFT via TASI lectures (arXiv)",
+              "free": true
+            }
+          ],
+          "derive": [],
+          "build": [],
+          "exam": {
+            "text": "No exam listed in the source document",
+            "passMark": 65,
+            "listed": false
+          },
+          "original": [],
+          "notes": [
+            "Pick 2–3 electives."
+          ],
+          "units": [
+            {
+              "week": 1,
+              "title": "Elective A, part 1",
+              "input": "First third of your first elective",
+              "problems": "Problems from the elective's notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 2,
+              "title": "Elective A, part 2",
+              "input": "Second third of your first elective",
+              "problems": "Problems from the elective's notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 3,
+              "title": "Elective A, part 3",
+              "input": "Final third of your first elective",
+              "problems": "Problems from the elective's notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 4,
+              "title": "Elective B, part 1",
+              "input": "First third of your second elective",
+              "problems": "Problems from the elective's notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 5,
+              "title": "Elective B, part 2",
+              "input": "Second third of your second elective",
+              "problems": "Problems from the elective's notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 6,
+              "title": "Elective B, part 3",
+              "input": "Final third of your second elective",
+              "problems": "Problems from the elective's notes",
+              "deriveIds": [],
+              "buildIds": []
+            },
+            {
+              "week": 7,
+              "title": "Optional third elective, or start the thesis-scale project",
+              "input": "Third elective (optional) or the M4 capstone reading",
+              "problems": "Problems from the elective's notes; exam: none listed for this module — Milestone M4 asks for two Part III papers at merit level",
+              "deriveIds": [],
+              "buildIds": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

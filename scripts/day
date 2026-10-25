@@ -1,0 +1,193 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = ["pyyaml>=6"]
+# ///
+"""Daily study loop.
+
+    scripts/day start [--module M0.1]   create today's log, print the derivation of the day
+    scripts/day end [--no-push]         validate today's log, commit everything, push
+    scripts/day status                  streak, today's tier, hours this week
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import subprocess
+import sys
+from datetime import timedelta
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import studylib as sl  # noqa: E402
+
+ROOT = sl.ROOT
+
+
+def log_path(d: str) -> Path:
+    return ROOT / "log" / f"{d}.md"
+
+
+def set_field(text: str, key: str, value: str) -> str:
+    """Replace `key: ...` in frontmatter, keeping any trailing `# comment`."""
+    pattern = re.compile(rf"^({re.escape(key)}:)[ \t]*(?:\"[^\"]*\"|[^#\n]*?)([ \t]+#.*)?$", re.M)
+    if not pattern.search(text):
+        return text.replace("\n---\n", f"\n{key}: {value}\n---\n", 1)
+    return pattern.sub(lambda m: f"{m.group(1)} {value}{m.group(2) or ''}", text, count=1)
+
+
+def q(s: str) -> str:
+    return json.dumps(s, ensure_ascii=False)
+
+
+def cmd_start(args: argparse.Namespace) -> int:
+    curriculum = sl.load_curriculum()
+    today = sl.today_local().isoformat()
+    path = log_path(today)
+    logs = sl.load_logs()
+    if path.exists():
+        print(f"{path.relative_to(ROOT)} already exists; not touching it.")
+        return cmd_status(args)
+
+    prev = sl.latest_log(logs, before=today)
+    module_id = args.module or (prev.module if prev and prev.module else None) \
+        or sl.current_module_id(logs, curriculum)
+    module = sl.find_module(curriculum, module_id) if module_id else None
+    if module_id and not module:
+        sl.warn(f"module {module_id} is not in the curriculum")
+    derive = sl.next_derivation(curriculum, module_id, sl.used_derive_ids(logs)) if module_id else None
+
+    text = (ROOT / "log" / "_template.md").read_text()
+    text = set_field(text, "date", today)
+    text = set_field(text, "module", module_id or "")
+    if derive:
+        text = set_field(text, "derivation", q(derive["text"]))
+        text = set_field(text, "derivation_id", q(derive["id"]))
+    start_here = prev.next_problem if prev and prev.next_problem else ""
+    text = text.replace("## Start here\n", f"## Start here\n\n{start_here or '(no next_problem in the last log)'}\n", 1)
+    path.write_text(text)
+
+    print(f"created {path.relative_to(ROOT)}")
+    if module:
+        week = sl.current_unit_week({**logs, today: sl.parse_log(text, today)}, curriculum, module_id, sl.today_local())
+        unit = next((u for u in module.get("units", []) if u.get("week") == week), None)
+        print(f"module   {module_id} {module['title']} (week {week})")
+        if unit:
+            print(f"input    {unit.get('input', '')}")
+            print(f"problems {unit.get('problems', '')}")
+    print(f"start    {start_here or '-'}")
+    if derive:
+        kind = module.get("deliverableKind", "lean") if module else "lean"
+        where = {"lean": f"proofs/Physics/{sl.module_dir(module_id)}/<Name>.lean",
+                 "notebook": f"notebooks/{sl.module_dir(module_id)}/<name>.ipynb",
+                 "essay": f"essays/{sl.module_dir(module_id)}/<name>.typ"}.get(kind, "")
+        print(f"derive   {derive['id']}: {derive['text']}  -> {where}")
+    else:
+        print("derive   (all derive items for this module used; pick one yourself)")
+    return 0
+
+
+def git(*a: str, check: bool = True) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", *a], cwd=ROOT, check=check, text=True, capture_output=True)
+
+
+def cmd_end(args: argparse.Namespace) -> int:
+    today = sl.today_local().isoformat()
+    path = log_path(today)
+    if not path.exists():
+        print(f"no log for {today}; run `scripts/day start` first", file=sys.stderr)
+        return 1
+    try:
+        log = sl.parse_log(path.read_text(), today)
+    except sl.LogError as e:
+        print(f"{path.relative_to(ROOT)}: {e}", file=sys.stderr)
+        return 1
+    errors = []
+    if not log.next_problem:
+        errors.append("next_problem is empty (Rule 10: never end without the next problem)")
+    if not log.problems:
+        errors.append("problems is empty (list at least one problem attempted)")
+    if errors:
+        for e in errors:
+            print(f"refusing: {e}", file=sys.stderr)
+        return 1
+
+    # Would this commit make a minimumDay? Warn, do not block.
+    pending = [line[3:] for line in git("status", "--porcelain", "-uall").stdout.splitlines()]
+    committed = sl.build_days(sl.load_commits(), {}, {}).get(today, {}).get("deliverables", {})
+    has_committed = any(committed.get(k, 0) for k in sl.DERIVATION_KINDS)
+    has_pending = any(sl.classify(p.split(" -> ")[-1]) in sl.DERIVATION_KINDS for p in pending)
+    if not (has_committed or has_pending):
+        sl.warn("no .lean / .ipynb / .typ deliverable today; this will not be a minimumDay")
+
+    git("add", "-A")
+    if git("diff", "--cached", "--quiet", check=False).returncode == 0:
+        print("nothing to commit")
+    else:
+        msg = f"day({log.module or 'none'}): {log.derivation or 'study'}"
+        git("commit", "-m", msg)
+        print(f"committed: {msg}")
+    if args.no_push:
+        return 0
+    r = git("push", check=False)
+    if r.returncode != 0:
+        print(r.stderr.strip(), file=sys.stderr)
+        print("push failed; commit is local. Fix and run `git push`.", file=sys.stderr)
+        return 1
+    print("pushed")
+    return 0
+
+
+def cmd_status(args: argparse.Namespace) -> int:
+    curriculum = sl.load_curriculum()
+    today = sl.today_local()
+    logs = sl.load_logs()
+    days = sl.build_days(sl.load_commits(), logs, curriculum)
+    t = today.isoformat()
+    day = days.get(t)
+    streak = sl.compute_streak(days, today)
+    week = sl.week_summary(logs, today, sl.weekly_target_minutes(curriculum))
+    module_id = sl.current_module_id(logs, curriculum)
+    module = sl.find_module(curriculum, module_id) if module_id else None
+    target = sl.daily_target(curriculum)
+
+    print(f"today    {t} (Africa/Nairobi)")
+    if module:
+        print(f"module   {module_id} {module['title']} (week {sl.current_unit_week(logs, curriculum, module_id, today)})")
+    print(f"streak   {streak['current']} day(s), longest {streak['longest']}, last {streak['lastMinimumDay'] or '-'}")
+    if day and day["minimumDay"]:
+        print("minimum  yes")
+    else:
+        print(f"minimum  no: {'; '.join(sl.why_not_minimum(day, curriculum))}")
+    minutes = day["minutes"] if day else 0
+    print(f"full     {'yes' if day and day['fullDay'] else 'no'} ({minutes}/{target} min)")
+    if day:
+        d = day["deliverables"]
+        print(f"today    commits {day['commits']}, proofs {d['proofs']}, notebooks {d['notebooks']}, "
+              f"essays {d['essays']}, modules {d['modules']}, problems {day['problems']}")
+    print(f"week     {week['minutes'] / 60:.1f} h / {week['targetMinutes'] / 60:.0f} h (since {week['start']})")
+    last = sl.latest_log(logs)
+    print(f"next     {last.next_problem if last and last.next_problem else '-'}")
+    uncommitted = [line[3:] for line in git("status", "--porcelain", "-uall").stdout.splitlines()
+                   if sl.classify(line[3:].split(" -> ")[-1]) in sl.DERIVATION_KINDS]
+    if uncommitted:
+        print(f"note     {len(uncommitted)} uncommitted deliverable(s); they count once committed")
+    return 0
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(prog="day", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = p.add_subparsers(dest="cmd", required=True)
+    s = sub.add_parser("start", help="create today's log")
+    s.add_argument("--module", help="module id, e.g. M0.1 (default: yesterday's)")
+    e = sub.add_parser("end", help="validate, commit, push")
+    e.add_argument("--no-push", action="store_true", help="commit but do not push")
+    sub.add_parser("status", help="streak, today, this week")
+    args = p.parse_args()
+    return {"start": cmd_start, "end": cmd_end, "status": cmd_status}[args.cmd](args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

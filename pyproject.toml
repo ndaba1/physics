@@ -1,16 +1,22 @@
 [project]
 name = "physics"
 version = "0.1.0"
-description = "Add your description here"
+description = "Physics self-study: proofs, notebooks, essays, logs, and the CI grader"
 readme = "README.md"
 authors = [
     { name = "Victor Ndaba", email = "mwangindaba@gmail.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "hypothesis>=6.170.6",
+    "ipykernel>=7.3.0",
+    "jupyter>=1.1.1",
     "matplotlib>=3.11.1",
+    "nbconvert>=7.17.1",
     "notebook>=7.6.2",
     "numpy>=2.5.2",
+    "pyyaml>=6.0.3",
+    "scipy>=1.18.1",
     "sympy>=1.14.0",
 ]
 
@@ -20,3 +26,12 @@ physics = "physics:main"
 [build-system]
 requires = ["uv_build>=0.12.9,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["scripts"]
+pythonpath = ["scripts"]
