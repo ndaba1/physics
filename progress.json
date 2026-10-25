@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-25T02:59:39Z",
+  "repo": "ndaba1/physics",
+  "headSha": "0764d415757dc5b6f8e72b68c6d0c417fbbdc13b",
+  "grade": {
+    "status": "pass",
+    "lean": "pass",
+    "notebooks": "pass",
+    "essays": "pass",
+    "runUrl": "https://github.com/ndaba1/physics/actions/runs/40156384645"
+  },
+  "currentModuleId": "M0.1",
+  "currentUnitWeek": 1,
+  "nextProblem": "Hammack 1.1 #1",
+  "usedDeriveIds": [
+    "M0.1.d1"
+  ],
+  "streak": {
+    "current": 0,
+    "longest": 0,
+    "lastMinimumDay": null
+  },
+  "week": {
+    "start": "2026-10-19",
+    "minutes": 0,
+    "targetMinutes": 1200
+  },
+  "days": {
+    "2026-09-04": {
+      "commits": 1,
+      "deliverables": {
+        "proofs": 0,
+        "notebooks": 0,
+        "essays": 0,
+        "modules": 0,
+        "log": false
+      },
+      "minutes": 0,
+      "problems": 0,
+      "moduleId": null,
+      "derivation": null,
+      "derivationId": null,
+      "nextProblem": null,
+      "brief": null,
+      "told": false,
+      "minimumDay": false,
+      "fullDay": false,
+      "grade": "pending"
+    },
+    "2026-10-22": {
+      "commits": 8,
+      "deliverables": {
+        "proofs": 2,
+        "notebooks": 1,
+        "essays": 1,
+        "modules": 0,
+        "log": true
+      },
+      "minutes": 0,
+      "problems": 0,
+      "moduleId": "M0.1",
+      "derivation": "√2 irrational; infinitely many primes (Lean, via Mathlib)",
+      "derivationId": "M0.1.d1",
+      "nextProblem": "Hammack 1.1 #1",
+      "brief": "TODO: three sentences to say tonight.",
+      "told": false,
+      "minimumDay": false,
+      "fullDay": false,
+      "grade": "pass"
+    },
+    "2026-10-25": {
+      "commits": 1,
+      "deliverables": {
+        "proofs": 0,
+        "notebooks": 0,
+        "essays": 0,
+        "modules": 0,
+        "log": false
+      },
+      "minutes": 0,
+      "problems": 0,
+      "moduleId": null,
+      "derivation": null,
+      "derivationId": null,
+      "nextProblem": null,
+      "brief": null,
+      "told": false,
+      "minimumDay": false,
+      "fullDay": false,
+      "grade": "pass"
+    }
+  },
+  "exams": [],
+  "modules": {
+    "M0.1": {
+      "status": "active",
+      "daysLogged": 1,
+      "minutes": 0,
+      "deriveDone": 1,
+      "deriveTotal": 3,
+      "examPassed": false
+    },
+    "M0.2": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M0.3": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 8,
+      "examPassed": false
+    },
+    "M0.4": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 4,
+      "examPassed": false
+    },
+    "M0.5": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 5,
+      "examPassed": false
+    },
+    "M0.6": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M0.7": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M0.8": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 7,
+      "examPassed": false
+    },
+    "M0.9": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M0.10": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M0.11": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M0.12": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 8,
+      "examPassed": false
+    },
+    "M0.13": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 5,
+      "examPassed": false
+    },
+    "M0.14": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 4,
+      "examPassed": false
+    },
+    "M0.15": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 6,
+      "examPassed": false
+    },
+    "M1.1": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M1.2": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M1.3": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M1.4": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M1.5": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M2.1": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M2.2": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M2.3": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M2.4": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M2.5": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M2.6": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M3.1": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M3.2": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M3.3": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M3.4": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M3.5": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M3.6": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.1": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.2": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.3": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.4": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.5": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.6": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    },
+    "M4.7": {
+      "status": "locked",
+      "daysLogged": 0,
+      "minutes": 0,
+      "deriveDone": 0,
+      "deriveTotal": 0,
+      "examPassed": false
+    }
+  }
+}
